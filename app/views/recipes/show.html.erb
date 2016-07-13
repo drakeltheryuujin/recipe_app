@@ -1,4 +1,3 @@
-<<<<<<< a786e09095e513d5bdc0fe7519ab68f8e163213d
 
 
 <h1><%=@recipe.title%></h1>
@@ -11,25 +10,12 @@
 </ul><br>
 <label>Instructions:</label>
 <p><%=@recipe.content%></p>
-=======
-RECIPE PAGE
 
-<%= @recipe.title %>
-<%= @recipe.image %>
-<%= @recipe.content %>
-
-<<<<<<< b207bafcb777d8ef7d25d8af4cecd2d86530f9f1
-<input value="Bookmark" type="submit" action="/bookmarks" method="post">
->>>>>>> stub show page for recipe with bookmark button
-=======
+Bookmarks:
 <%= form_for @bookmark do |f| %>
 <%= f.hidden_field :recipe_id, :value => @recipe.id %>
 <%= f.hidden_field :reader_id, :value => @user.reader.id %>
 <%= f.submit "Bookmark" %>
 
 <% end %>
-<!-- <form action="/bookmarks" method="post">
-	<input type="hidden" value="{@recipe.id}" >
-	<input value="Bookmark" type="submit" >
-</form> -->
->>>>>>> working bookmark without uniq
+
