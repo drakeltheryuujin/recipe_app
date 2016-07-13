@@ -8,6 +8,8 @@ class RecipesController < ApplicationController
 
   def show 
     @recipe = Recipe.find(params[:id])
+    @bookmark = Bookmark.new
+    @user = current_user  
   end
 
   def new 
@@ -33,11 +35,6 @@ private
   def recipe_params
     params.require(:recipe).permit(:title, :content, :image, :ingredients_array, :ingredient_ids =>[])
   end
-=======
-	def show
-		binding.pry
-		@recipe = Recipe.find(params[:id])
-	end
->>>>>>> stub show page for recipe with bookmark button
+
 
 end
