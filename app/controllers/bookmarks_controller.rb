@@ -1,7 +1,7 @@
 class BookmarksController < ApplicationController
 
 	def create
-		binding.pry
+		
 		current_user.reader.bookmarks << Bookmark.create(bookmark_params)
 	end
 

@@ -6,9 +6,12 @@
 <p><%= @user.bio %></p>
 <p><%= @user.fav_cuisine %></p>
 <small><%= @user.allergies %></small><br><br>
-<label>Recipes:</label><br>
-<% @user.author.recipes.each do |recipe| %>
-<%= link_to recipe.title, recipe_path(recipe)%><br>
-<%end%>
+
+<% if @user.author %>
+	<label>Recipes:</label><br>
+	<% @user.author.recipes.each do |recipe| %>
+	<%= link_to recipe.title, recipe_path(recipe)%><br>
+	<%end%>
+<% end %>
 
 

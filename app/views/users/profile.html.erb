@@ -7,9 +7,15 @@
 <p><%= @user.fav_cuisine %></p>
 <small><%= @user.allergies %></small>
 
+<% if @user.author %>
+	<label>My Recipes:</label><br>
+	<% @user.author.recipes.each do |recipe| %>
+	<%= link_to recipe.title, recipe_path(recipe)%><br>
+	<%end%>
+<% end %>
+
 <ul><% @user.reader.bookmarks.each do |bookmark| %>
 	<li><p><%= bookmark.recipe_title %></p>
 	<p><%= bookmark.truncate_content %></p></li>
-
 <% end %>
 </ul>

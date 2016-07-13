@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
 
-<<<<<<< a786e09095e513d5bdc0fe7519ab68f8e163213d
+
   def index
     @recipes = Recipe.all
     @current_user = current_user
