@@ -6,3 +6,10 @@
 <p><%= @user.bio %></p>
 <p><%= @user.fav_cuisine %></p>
 <small><%= @user.allergies %></small>
+
+<ul><% @user.reader.bookmarks.each do |bookmark| %>
+	<li><p><%= bookmark.recipe_title %></p>
+	<p><%= bookmark.truncate_content %></p></li>
+
+<% end %>
+</ul>

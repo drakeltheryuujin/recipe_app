@@ -4,4 +4,13 @@ RECIPE PAGE
 <%= @recipe.image %>
 <%= @recipe.content %>
 
-<input value="Bookmark" type="submit" action="/bookmarks" method="post">
+<%= form_for @bookmark do |f| %>
+<%= f.hidden_field :recipe_id, :value => @recipe.id %>
+<%= f.hidden_field :reader_id, :value => @user.reader.id %>
+<%= f.submit "Bookmark" %>
+
+<% end %>
+<!-- <form action="/bookmarks" method="post">
+	<input type="hidden" value="{@recipe.id}" >
+	<input value="Bookmark" type="submit" >
+</form> -->
