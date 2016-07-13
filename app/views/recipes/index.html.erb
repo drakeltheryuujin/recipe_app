@@ -1,0 +1,7 @@
+
+
+<%@recipes.each do |recipe|%>
+<h1><%=recipe.title%></h1>
+<h3><%=recipe.author.user.name%></h3>
+<p><%=recipe.content%></p>
+<%end%>
