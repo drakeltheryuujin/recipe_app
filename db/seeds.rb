@@ -20,4 +20,3 @@ recipe = Recipe.create(author_id: user.author.id, title: 'Chicken Pot Pie', cont
 Ingredient.create(name: 'chicken breast')
 Bookmark.create(reader_id: user.reader.id, recipe_id: recipe.id)
 
-

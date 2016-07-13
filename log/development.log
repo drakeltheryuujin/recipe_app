@@ -1854,7 +1854,7 @@ rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
 rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
 actionpack (5.0.0) lib/action_dispatch/middleware/cookies.rb:613:in `call'
 activerecord (5.0.0) lib/active_record/migration.rb:552:in `call'
-=======
+
 Started GET "/" for ::1 at 2016-07-12 18:08:32 -0400
   
 ActiveRecord::NoDatabaseError (FATAL:  database "recipe_app_development" does not exist
@@ -2931,7 +2931,7 @@ Started GET "/images/ihoih" for ::1 at 2016-07-13 09:54:08 -0400
 ActionController::RoutingError (No route matches [GET] "/images/ihoih"):
   
 actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-=======
+
 puma (3.4.0) lib/puma/thread_pool.rb:114:in `call'
 puma (3.4.0) lib/puma/thread_pool.rb:114:in `block in spawn_thread'
   Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
@@ -3061,7 +3061,7 @@ Processing by UsersController#index as HTML
   Rendering users/index.html.erb within layouts/application
   Rendered users/index.html.erb within layouts/application (0.3ms)
 Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.0ms)
-=======
+
 puma (3.4.0) lib/puma/thread_pool.rb:114:in `call'
 puma (3.4.0) lib/puma/thread_pool.rb:114:in `block in spawn_thread'
   Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
@@ -5566,3 +5566,1073 @@ Completed 200 OK in 512ms (Views: 467.5ms | ActiveRecord: 0.0ms)
   [1m[36mBookmark Load (0.3ms)[0m  [1m[34mSELECT "bookmarks".* FROM "bookmarks" WHERE "bookmarks"."reader_id" = $1[0m  [["reader_id", 6]]
   [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."author_id" = $1[0m  [["author_id", 4]]
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Tom"], ["password_digest", "$2a$10$ylNBNOBZhXceHHqZiidF9OuPShAqzlbAtPz.7CwDL7ZQs5gl2vtVq"], ["created_at", 2016-07-13 16:10:25 UTC], ["updated_at", 2016-07-13 16:10:25 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "readers" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", 2016-07-13 16:10:25 UTC], ["updated_at", 2016-07-13 16:10:25 UTC]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "authors" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", 2016-07-13 16:10:25 UTC], ["updated_at", 2016-07-13 16:10:25 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Chicken Pot Pie"], ["author_id", 1], ["content", "on nom nom..."], ["created_at", 2016-07-13 16:10:25 UTC], ["updated_at", 2016-07-13 16:10:25 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "chicken breast"], ["created_at", 2016-07-13 16:10:25 UTC], ["updated_at", 2016-07-13 16:10:25 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "SALT"], ["created_at", 2016-07-13 16:10:25 UTC], ["updated_at", 2016-07-13 16:10:25 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReader Load (0.6ms)[0m  [1m[34mSELECT  "readers".* FROM "readers" WHERE "readers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "bookmarks" ("recipe_id", "reader_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 1], ["reader_id", 1], ["created_at", 2016-07-13 16:10:25 UTC], ["updated_at", 2016-07-13 16:10:25 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/recipes/new" for ::1 at 2016-07-13 12:10:39 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (8079.6ms)
+Completed 200 OK in 8448ms (Views: 8404.3ms | ActiveRecord: 11.6ms)
+
+
+Started POST "/recipes" for ::1 at 2016-07-13 12:11:36 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jq09iueD1HUx4KIHSqUAhLkLv4V8b0bzeeEEwecmMt+YL5cdmRZRcoxiyBP60IU0tAExviphVMRtM0az4pmNGA==", "recipe"=>{"title"=>"recipe", "content"=>"content", "image"=>"nope", "ingredient_ids"=>["", "1", "3"]}, "commit"=>"Create Recipe"}
+Completed 500 Internal Server Error in 629057ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/recipes_controller.rb:17:in `create'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (284.2ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (66.7ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (26.7ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (470.7ms)
+Started GET "/recipes" for ::1 at 2016-07-13 12:22:14 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (532.6ms)
+Completed 200 OK in 1103ms (Views: 965.2ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/recipes/new" for ::1 at 2016-07-13 12:22:21 -0400
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (1.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (7718.9ms)
+Completed 200 OK in 8183ms (Views: 8155.5ms | ActiveRecord: 11.7ms)
+
+
+Started POST "/recipes" for ::1 at 2016-07-13 12:22:56 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CE9XkidK1WJ8y9FkrPowgNbRksCn7ptl24gGGYYYzdYezf0FWd9QZcFJu3Acj7Uw29sc+/HgiVLPWkRrg6dyEQ==", "recipe"=>{"title"=>"recipe", "content"=>"content", "image"=>"image", "ingredient_ids"=>["", "2", "3"]}, "commit"=>"Create Recipe"}
+Unpermitted parameter: ingredient_ids
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 227680ms (ActiveRecord: 1.2ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/recipes_controller.rb:18:in `create'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (462.2ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (120.5ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (41.1ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (736.0ms)
+Started GET "/recipes" for ::1 at 2016-07-13 12:27:05 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (10.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (511.2ms)
+Completed 200 OK in 1127ms (Views: 983.4ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/recipes/new" for ::1 at 2016-07-13 12:27:11 -0400
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (276.6ms)
+Completed 200 OK in 798ms (Views: 768.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/recipes" for ::1 at 2016-07-13 12:27:46 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A07bPk5bU3Erw1hQag7Hv5oolqg34PPjbwXtqJnZdGwVzHGpMM7WdpZBMkTae0IPlyIYk2Hu4dR716/anGbLqw==", "recipe"=>{"title"=>"salt chicken", "content"=>"here it is", "image"=>"image", "ingredient_ids"=>["", "1", "3"]}, "commit"=>"Create Recipe"}
+Unpermitted parameter: ingredient_ids
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+No template found for RecipesController#create, rendering head :no_content
+Completed 204 No Content in 148ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 12:28:34 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (511.5ms)
+Completed 200 OK in 1138ms (Views: 1023.1ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/recipes" for ::1 at 2016-07-13 12:28:40 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A07bPk5bU3Erw1hQag7Hv5oolqg34PPjbwXtqJnZdGwVzHGpMM7WdpZBMkTae0IPlyIYk2Hu4dR716/anGbLqw==", "recipe"=>{"title"=>"salt chicken", "content"=>"here it is", "image"=>"image", "ingredient_ids"=>["", "1", "3"]}, "commit"=>"Create Recipe"}
+Unpermitted parameter: ingredient_ids
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+No template found for RecipesController#create, rendering head :no_content
+Completed 204 No Content in 152ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 12:29:48 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (523.9ms)
+Completed 200 OK in 1160ms (Views: 1048.3ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/recipes" for ::1 at 2016-07-13 12:29:53 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A07bPk5bU3Erw1hQag7Hv5oolqg34PPjbwXtqJnZdGwVzHGpMM7WdpZBMkTae0IPlyIYk2Hu4dR716/anGbLqw==", "recipe"=>{"title"=>"salt chicken", "content"=>"here it is", "image"=>"image", "ingredient_ids"=>["", "1", "3"]}, "commit"=>"Create Recipe"}
+Unpermitted parameter: ingredient_ids
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"recipes", :id=>nil} missing required keys: [:id]):
+  
+app/controllers/recipes_controller.rb:17:in `create'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (440.4ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (118.5ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (51.8ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (716.3ms)
+Started POST "/recipes" for ::1 at 2016-07-13 12:30:14 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A07bPk5bU3Erw1hQag7Hv5oolqg34PPjbwXtqJnZdGwVzHGpMM7WdpZBMkTae0IPlyIYk2Hu4dR716/anGbLqw==", "recipe"=>{"title"=>"salt chicken", "content"=>"here it is", "image"=>"image", "ingredient_ids"=>["", "1", "3"]}, "commit"=>"Create Recipe"}
+Unpermitted parameter: ingredient_ids
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 304ms (ActiveRecord: 1.2ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/recipes_controller.rb:18:in `create'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (465.5ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (111.6ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (41.1ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (747.8ms)
+Started POST "/recipes" for ::1 at 2016-07-13 12:30:54 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A07bPk5bU3Erw1hQag7Hv5oolqg34PPjbwXtqJnZdGwVzHGpMM7WdpZBMkTae0IPlyIYk2Hu4dR716/anGbLqw==", "recipe"=>{"title"=>"salt chicken", "content"=>"here it is", "image"=>"image", "ingredient_ids"=>["", "1", "3"]}, "commit"=>"Create Recipe"}
+Unpermitted parameter: ingredient_ids
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 60188ms (ActiveRecord: 1.2ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/recipes_controller.rb:18:in `create'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (476.6ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (102.8ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (50.6ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (742.0ms)
+Started POST "/recipes" for ::1 at 2016-07-13 12:32:02 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A07bPk5bU3Erw1hQag7Hv5oolqg34PPjbwXtqJnZdGwVzHGpMM7WdpZBMkTae0IPlyIYk2Hu4dR716/anGbLqw==", "recipe"=>{"title"=>"salt chicken", "content"=>"here it is", "image"=>"image", "ingredient_ids"=>["", "1", "3"]}, "commit"=>"Create Recipe"}
+Unpermitted parameter: ingredient_ids
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 4935ms (ActiveRecord: 1.5ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/recipes_controller.rb:18:in `create'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (486.9ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (123.3ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (54.5ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (781.0ms)
+Started POST "/recipes" for ::1 at 2016-07-13 12:32:42 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A07bPk5bU3Erw1hQag7Hv5oolqg34PPjbwXtqJnZdGwVzHGpMM7WdpZBMkTae0IPlyIYk2Hu4dR716/anGbLqw==", "recipe"=>{"title"=>"salt chicken", "content"=>"here it is", "image"=>"image", "ingredient_ids"=>["", "1", "3"]}, "commit"=>"Create Recipe"}
+Unpermitted parameter: ingredient_ids
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 903471ms (ActiveRecord: 1.2ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/recipes_controller.rb:18:in `create'
+Started POST "/recipes" for ::1 at 2016-07-13 12:47:47 -0400
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (477.8ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (121.1ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (54.6ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (757.7ms)
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A07bPk5bU3Erw1hQag7Hv5oolqg34PPjbwXtqJnZdGwVzHGpMM7WdpZBMkTae0IPlyIYk2Hu4dR716/anGbLqw==", "recipe"=>{"title"=>"salt chicken", "content"=>"here it is", "image"=>"image", "ingredient_ids"=>["", "1", "3"]}, "commit"=>"Create Recipe"}
+Unpermitted parameter: ingredient_ids
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "content", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "salt chicken"], ["author_id", 1], ["content", "here it is"], ["image", "image"], ["created_at", 2016-07-13 16:49:22 UTC], ["updated_at", 2016-07-13 16:49:22 UTC]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 241158ms (ActiveRecord: 9.0ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/recipes_controller.rb:18:in `create'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (517.3ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (119.3ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (56.3ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (797.1ms)
+Started POST "/recipes" for ::1 at 2016-07-13 12:52:01 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A07bPk5bU3Erw1hQag7Hv5oolqg34PPjbwXtqJnZdGwVzHGpMM7WdpZBMkTae0IPlyIYk2Hu4dR716/anGbLqw==", "recipe"=>{"title"=>"salt chicken", "content"=>"here it is", "image"=>"image", "ingredient_ids"=>["", "1", "3"]}, "commit"=>"Create Recipe"}
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (1, 3)[0m
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "content", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "salt chicken"], ["author_id", 1], ["content", "here it is"], ["image", "image"], ["created_at", 2016-07-13 16:52:02 UTC], ["updated_at", 2016-07-13 16:52:02 UTC]]
+  [1m[35mSQL (15.7ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ingredient_id", 1], ["recipe_id", 4], ["created_at", 2016-07-13 16:52:02 UTC], ["updated_at", 2016-07-13 16:52:02 UTC]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ingredient_id", 3], ["recipe_id", 4], ["created_at", 2016-07-13 16:52:02 UTC], ["updated_at", 2016-07-13 16:52:02 UTC]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 266815ms (ActiveRecord: 24.3ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/recipes_controller.rb:20:in `create'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (520.7ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (126.7ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (55.1ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (808.5ms)
+Started GET "/recipes" for ::1 at 2016-07-13 12:56:51 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (1174.7ms)
+Completed 200 OK in 1831ms (Views: 1707.8ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 12:58:53 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mCACHE (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mCACHE (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (505.2ms)
+Completed 200 OK in 1065ms (Views: 1037.8ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 12:59:09 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (510.2ms)
+Completed 200 OK in 1080ms (Views: 1051.5ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 13:00:00 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/avrambillig/Development/flatiron_projects/recipe_app/app/views/recipes/index.html.erb:10: syntax error, unexpected '<'
+<%end
+ ^
+/Users/avrambillig/Development/flatiron_projects/recipe_app/app/views/recipes/index.html.erb:10: unknown type of %string
+<%end
+    ^):
+  
+app/views/recipes/index.html.erb:10: syntax error, unexpected '<'
+app/views/recipes/index.html.erb:10: unknown type of %string
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (713.9ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (175.9ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.4ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (999.2ms)
+Started GET "/recipes" for ::1 at 2016-07-13 13:00:57 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mCACHE (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (510.7ms)
+Completed 200 OK in 1100ms (Views: 1073.0ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 13:01:10 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (14.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  [1m[36mCACHE (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  Rendered recipes/index.html.erb within layouts/application (522.7ms)
+Completed 200 OK in 1097ms (Views: 1055.7ms | ActiveRecord: 24.3ms)
+
+
+Started GET "/recipes/1" for ::1 at 2016-07-13 13:06:04 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (/Users/avrambillig/Development/flatiron_projects/recipe_app/app/views/recipes/show.html.erb:13: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/recipes/show.html.erb:13: syntax error, unexpected keyword_ensure, expecting end-of-input
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (675.8ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (148.0ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (12.0ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (957.9ms)
+Started GET "/recipes/1" for ::1 at 2016-07-13 13:06:23 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.8ms)
+
+
+  
+SyntaxError (/Users/avrambillig/Development/flatiron_projects/recipe_app/app/views/recipes/show.html.erb:12: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/avrambillig/Development/flatiron_projects/recipe_app/app/views/recipes/show.html.erb:14: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/recipes/show.html.erb:12: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/recipes/show.html.erb:14: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (672.6ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (173.3ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (19.2ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (999.2ms)
+Started GET "/recipes/1" for ::1 at 2016-07-13 13:06:56 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  Rendered recipes/show.html.erb within layouts/application (135.4ms)
+Completed 200 OK in 736ms (Views: 688.6ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 13:07:37 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (270.4ms)
+Completed 200 OK in 838ms (Views: 816.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/recipes/1" for ::1 at 2016-07-13 13:07:56 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  Rendered recipes/show.html.erb within layouts/application (135.9ms)
+Completed 200 OK in 709ms (Views: 680.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 13:10:11 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (277.7ms)
+Completed 200 OK in 881ms (Views: 842.5ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 13:10:13 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (5.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (296.8ms)
+Completed 200 OK in 896ms (Views: 867.0ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/recipes/1" for ::1 at 2016-07-13 13:10:15 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  Rendered recipes/show.html.erb within layouts/application (131.5ms)
+Completed 200 OK in 777ms (Views: 742.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 13:10:35 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (15.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (280.8ms)
+Completed 200 OK in 882ms (Views: 829.3ms | ActiveRecord: 20.4ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 13:13:32 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (14.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (283.5ms)
+Completed 200 OK in 882ms (Views: 829.0ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/users/1" for ::1 at 2016-07-13 13:13:34 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (nil is not a valid asset source):
+    1: <h1><%= @user.name %></h1>
+    2: 
+    3: <p><%= image_tag @user.image, size: "200x200" %></p>
+    4: <p><%= @user.hometown %></p>
+    5: <p><%= @user.email %></p>
+    6: <p><%= @user.bio %></p>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb___450207686098836870_70257532143960'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (674.5ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (147.5ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (27.9ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (956.9ms)
+Started GET "/recipes" for ::1 at 2016-07-13 13:13:47 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (300.7ms)
+Completed 200 OK in 920ms (Views: 894.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/recipes/new" for ::1 at 2016-07-13 13:14:03 -0400
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (120.3ms)
+Completed 200 OK in 719ms (Views: 682.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/recipes" for ::1 at 2016-07-13 13:14:22 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZB1u85hBuVaELp5d9IMLct193OkKPZiBhOqs0tnmhhhyn8Rk5tQ8UTms9ElE9o7C0HdS0lwziraQOO6g3Fk53w==", "recipe"=>{"title"=>"naya ", "content"=>"chicken", "image"=>"no fork", "ingredient_ids"=>["", "2", "3"]}, "commit"=>"Create Recipe"}
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (2, 3)[0m
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "content", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "naya "], ["author_id", 1], ["content", "chicken"], ["image", "no fork"], ["created_at", 2016-07-13 17:14:23 UTC], ["updated_at", 2016-07-13 17:14:23 UTC]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ingredient_id", 2], ["recipe_id", 5], ["created_at", 2016-07-13 17:14:23 UTC], ["updated_at", 2016-07-13 17:14:23 UTC]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ingredient_id", 3], ["recipe_id", 5], ["created_at", 2016-07-13 17:14:23 UTC], ["updated_at", 2016-07-13 17:14:23 UTC]]
+  [1m[35m (200.1ms)[0m  [1m[35mCOMMIT[0m
+No template found for RecipesController#create, rendering head :no_content
+Completed 204 No Content in 799ms (ActiveRecord: 205.6ms)
+
+
+Started GET "/" for ::1 at 2016-07-13 13:14:43 -0400
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 612ms (Views: 594.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for ::1 at 2016-07-13 13:14:46 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 615ms (Views: 597.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-07-13 13:14:51 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qIRV3cINDILVWlaZBJDpwovVP1zL7oaY5eyrGaOET4W4PTFSLu+0DHaKpn2IoegYSbwdz7KGLzBXrnb+KZKtXw==", "name"=>"Avram", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Avram"], ["LIMIT", 1]]
+Redirected to http://localhost:3012/profile
+Completed 302 Found in 128ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/profile" for ::1 at 2016-07-13 13:14:51 -0400
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  Rendered users/profile.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 633ms (Views: 590.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 13:15:19 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (422.0ms)
+Started GET "/recipes/new" for ::1 at 2016-07-13 13:15:20 -0400
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (100.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (221.8ms)
+Completed 200 OK in 1357ms (Views: 1331.5ms | ActiveRecord: 6.8ms)
+
+
+Completed 200 OK in 1143ms (Views: 993.2ms | ActiveRecord: 100.3ms)
+
+
+Started POST "/recipes" for ::1 at 2016-07-13 13:15:28 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7Ywrivjy0MxyeBfsSAHBMNaenHcpVlD0s0joNw9HKXT7DoEdhmdVy8/6ffj4dESA25QSTH9YQsOnmqpFCviWsw==", "recipe"=>{"title"=>"naya ", "content"=>"chicken", "image"=>"no fork", "ingredient_ids"=>["", "1", "3"]}, "commit"=>"Create Recipe"}
+  [1m[36mIngredient Load (1.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (1, 3)[0m
+  [1m[36mAuthor Load (1.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "content", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "naya "], ["author_id", 1], ["content", "chicken"], ["image", "no fork"], ["created_at", 2016-07-13 17:15:28 UTC], ["updated_at", 2016-07-13 17:15:28 UTC]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ingredient_id", 1], ["recipe_id", 6], ["created_at", 2016-07-13 17:15:29 UTC], ["updated_at", 2016-07-13 17:15:29 UTC]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ingredient_id", 3], ["recipe_id", 6], ["created_at", 2016-07-13 17:15:29 UTC], ["updated_at", 2016-07-13 17:15:29 UTC]]
+  [1m[35m (16.5ms)[0m  [1m[35mCOMMIT[0m
+No template found for RecipesController#create, rendering head :no_content
+Completed 204 No Content in 546ms (ActiveRecord: 23.1ms)
+
+
+Started GET "/recipes/new" for ::1 at 2016-07-13 13:16:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (717.7ms)
+Completed 200 OK in 995ms (Views: 948.6ms | ActiveRecord: 11.4ms)
+
+
+Started POST "/recipes" for ::1 at 2016-07-13 13:16:18 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UZzJ0oywLpnwlWcY3z+OeJPeukjEqJXMDY/QbaLLaLtHHmNF8iWrnk0XDQxvSgvIntQ0c5Kmh/sZXZIfp3TXfA==", "recipe"=>{"title"=>"naya", "content"=>"kfajldsf", "image"=>"nofasdkjfl", "ingredient_ids"=>["", "1"]}, "commit"=>"Create Recipe"}
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1[0m
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "content", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "naya"], ["author_id", 1], ["content", "kfajldsf"], ["image", "nofasdkjfl"], ["created_at", 2016-07-13 17:16:18 UTC], ["updated_at", 2016-07-13 17:16:18 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ingredient_id", 1], ["recipe_id", 7], ["created_at", 2016-07-13 17:16:18 UTC], ["updated_at", 2016-07-13 17:16:18 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+No template found for RecipesController#create, rendering head :no_content
+Completed 204 No Content in 119ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/" for ::1 at 2016-07-13 13:16:52 -0400
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for ::1 at 2016-07-13 13:17:23 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 40ms (Views: 36.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/new" for ::1 at 2016-07-13 13:17:58 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+Started POST "/sessions" for ::1 at 2016-07-13 13:18:31 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+CoTlRvc+GG65KMd/AT6+e1yckljVdrV07SavAElYofok3ca9z5A7xk0U/lwNfsjLxtQ2ho9c31h9kdbizOAXQ==", "name"=>"Avram", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Avram"], ["LIMIT", 1]]
+  Rendered recipes/new.html.erb within layouts/application (32927.7ms)
+Redirected to http://localhost:3012/profile
+Completed 302 Found in 865ms (ActiveRecord: 205.6ms)
+
+
+Started GET "/profile" for ::1 at 2016-07-13 13:18:32 -0400
+Completed 200 OK in 33338ms (Views: 33292.5ms | ActiveRecord: 11.4ms)
+
+
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  Rendered users/profile.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 43ms (Views: 35.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for ::1 at 2016-07-13 13:19:05 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S+ws5baK3LxL5bRkcXzg9EN/EHcVMezavBldGOikaxNdboZyyB9Zu/Zn3nDBCWVETnWeTEM//u2oyx9q7RvU1A==", "name"=>"Avram", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Avram"], ["LIMIT", 1]]
+Redirected to http://localhost:3012/profile
+Completed 302 Found in 121ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/profile" for ::1 at 2016-07-13 13:19:05 -0400
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  Rendered users/profile.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 293ms (Views: 288.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/recipes/new" for ::1 at 2016-07-13 13:19:21 -0400
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (103885.7ms)
+Completed 200 OK in 103932ms (Views: 103905.8ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/" for ::1 at 2016-07-13 13:21:30 -0400
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 27ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for ::1 at 2016-07-13 13:21:43 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 42ms (Views: 39.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-07-13 13:21:47 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IIaMxkD6cz9Oih3i6ZWZXMkPHvD3frznJqU0S2TzvqgwP+hJrBjLse1a7QZlpJiGC2Y8Y44WFU+U5+ms7uVccg==", "name"=>"Tom", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Tom"], ["LIMIT", 1]]
+Redirected to http://localhost:3012/profile
+Completed 302 Found in 78ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/profile" for ::1 at 2016-07-13 13:21:47 -0400
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  Rendered users/profile.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (nil is not a valid asset source):
+    1: <h1><%= @user.name %></h1>
+    2: 
+    3: <p><%= image_tag @user.image, size: "200x200" %></p>
+    4: <p><%= @user.hometown %></p>
+    5: <p><%= @user.email %></p>
+    6: <p><%= @user.bio %></p>
+  
+app/views/users/profile.html.erb:3:in `_app_views_users_profile_html_erb__3938374571270485833_70218027426340'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.3ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (92.5ms)
+Started GET "/recipes/new" for ::1 at 2016-07-13 13:21:59 -0400
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/recipes" for ::1 at 2016-07-13 13:22:07 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k90sB/QHFlAHHhn1cAIHFqDp2PL3TWvSg4COG5EsGCWFX4aQipKTV7qcc+HAd4KmreNWyaFDeeWXUsxplJOn4g==", "recipe"=>{"title"=>"naya ", "content"=>"content", "image"=>"image", "ingredient_ids"=>["", "1"]}, "commit"=>"Create Recipe"}
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1[0m
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "content", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "naya "], ["author_id", 1], ["content", "content"], ["image", "image"], ["created_at", 2016-07-13 17:22:07 UTC], ["updated_at", 2016-07-13 17:22:07 UTC]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ingredient_id", 1], ["recipe_id", 8], ["created_at", 2016-07-13 17:22:07 UTC], ["updated_at", 2016-07-13 17:22:07 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+No template found for RecipesController#create, rendering head :no_content
+Completed 204 No Content in 110ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 13:22:53 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 52ms (Views: 47.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/recipes/new" for ::1 at 2016-07-13 13:23:40 -0400
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+Started GET "/recipes/new" for ::1 at 2016-07-13 13:23:40 -0400
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (32.6ms)
+Completed 200 OK in 98ms (Views: 55.3ms | ActiveRecord: 11.6ms)
+
+
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 59ms (Views: 42.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/recipes" for ::1 at 2016-07-13 13:23:48 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gy8dCyC+CUoROGElVd8nFS7IO12/5ZT0bdYPdKURUJyVrbecXiuMTay6CzHlqqKlI8K1ZunrhsN5BE0GoK7vWw==", "recipe"=>{"title"=>"halal", "content"=>"yummy", "image"=>"omnom", "ingredient_ids"=>["", "1"]}, "commit"=>"Create Recipe"}
+  [1m[36mIngredient Load (1.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 1[0m
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "content", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "halal"], ["author_id", 1], ["content", "yummy"], ["image", "omnom"], ["created_at", 2016-07-13 17:23:48 UTC], ["updated_at", 2016-07-13 17:23:48 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ingredient_id", 1], ["recipe_id", 9], ["created_at", 2016-07-13 17:23:48 UTC], ["updated_at", 2016-07-13 17:23:48 UTC]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 19.0ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"recipes"} missing required keys: [:id]):
+  
+app/controllers/recipes_controller.rb:19:in `create'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.1ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.8ms)
+Started GET "/recipes/new" for ::1 at 2016-07-13 13:24:26 -0400
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 74ms (Views: 48.0ms | ActiveRecord: 9.3ms)
+
+
+Started POST "/recipes" for ::1 at 2016-07-13 13:24:37 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N91WWNIkeJ5vr3Bgxv9EBnfeFUqWl01+LnmDQGVswfAhX/zPrLH9mdItGnR2isG2etSbccCZX0k6q8EyYNN+Nw==", "recipe"=>{"title"=>"tomato egg", "content"=>"tomato", "image"=>"yummy", "ingredient_ids"=>["", "3"]}, "commit"=>"Create Recipe"}
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 3[0m
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "content", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "tomato egg"], ["author_id", 1], ["content", "tomato"], ["image", "yummy"], ["created_at", 2016-07-13 17:24:37 UTC], ["updated_at", 2016-07-13 17:24:37 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("ingredient_id", "recipe_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ingredient_id", 3], ["recipe_id", 10], ["created_at", 2016-07-13 17:24:37 UTC], ["updated_at", 2016-07-13 17:24:37 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3012/recipes/10
+Completed 302 Found in 30ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/recipes/10" for ::1 at 2016-07-13 13:24:37 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  Rendered recipes/show.html.erb within layouts/application (124.5ms)
+Completed 500 Internal Server Error in 134ms (ActiveRecord: 6.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `recipe' for #<#<Class:0x007fb9d2b33c68>:0x007fb9d2a42340>):
+     5: <h3><%=@recipe.author.user.name%></h3>
+     6: <label>Ingredients:</label>
+     7: <%@recipe.ingredients.each_with_index do |ingredient, i|%>
+     8: <%=i == recipe.ingredients.length - 1 ? "#{ingredient.name}" : "#{ingredient.name}, "%>
+     9: <%end%>
+    10: <label>Instructions:</label>
+    11: <p><%=@recipe.content%></p>
+  
+app/views/recipes/show.html.erb:8:in `block in _app_views_recipes_show_html_erb__147639483340344607_70218039826720'
+app/views/recipes/show.html.erb:7:in `each_with_index'
+app/views/recipes/show.html.erb:7:in `_app_views_recipes_show_html_erb__147639483340344607_70218039826720'
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.9ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendering /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/avrambillig/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (85.9ms)
+Started GET "/recipes/10" for ::1 at 2016-07-13 13:25:17 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  Rendered recipes/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 42ms (Views: 36.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/recipes/new" for ::1 at 2016-07-13 13:25:27 -0400
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered recipes/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 31ms (Views: 28.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-13 13:25:40 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 49ms (Views: 44.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/recipes/10" for ::1 at 2016-07-13 13:25:43 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  Rendered recipes/show.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 49ms (Views: 40.2ms | ActiveRecord: 2.6ms)
+
+

@@ -1,7 +1,6 @@
 
 
 <%@recipes.each do |recipe|%>
-<h1><%=recipe.title%></h1>
-<h3><%=recipe.author.user.name%></h3>
-<p><%=recipe.content%></p>
+<h1><a href = <%=recipe_path(recipe.id)%>><%=recipe.title%></a></h1>
+<h3>Created by <a href = <%= user_path(recipe.author.user.id)%>><%=recipe.author.user.name%></a></h3>
 <%end%>

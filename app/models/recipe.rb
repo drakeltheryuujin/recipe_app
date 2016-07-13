@@ -5,4 +5,11 @@ class Recipe < ApplicationRecord
 	has_many :bookmarks	
 	has_many :readers, through: :bookmarks
 
+  # def ingredient_ids=(ingredient_ids) 
+  #   byebug
+  #   ingredient_ids.each do |ingredient_id|
+  #     self.ingredients.build(Ingredients.find(ingredient_id))
+  #   end
+  # end
+
 end
