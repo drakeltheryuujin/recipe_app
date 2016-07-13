@@ -14,7 +14,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.author = Author.first
+    @author = Author.find_or_create_by(user_id: session[:user_id])
+    @recipe.author = @author
     @recipe.save 
     redirect_to recipe_path(@recipe)
   end
