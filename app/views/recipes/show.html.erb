@@ -1,11 +1,12 @@
 
 
 <h1><%=@recipe.title%></h1>
-<label>By:</label>
-<h3><%=@recipe.author.user.name%></h3>
+<p>By <%=@recipe.author.user.name%></p><br>
 <label>Ingredients:</label>
-<%@recipe.ingredients.each_with_index do |ingredient, i|%>
-<%=i == @recipe.ingredients.length - 1 ? "#{ingredient.name}" : "#{ingredient.name}, "%>
+<ul>
+<%@recipe.ingredients.each_with_index do |ingredient|%>
+<li><%=ingredient.name%></li>
 <%end%>
+</ul><br>
 <label>Instructions:</label>
 <p><%=@recipe.content%></p>

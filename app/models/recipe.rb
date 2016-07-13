@@ -4,6 +4,8 @@ class Recipe < ApplicationRecord
 	has_many :ingredients, through: :recipe_ingredients
 	has_many :bookmarks	
 	has_many :readers, through: :bookmarks
+  accepts_nested_attributes_for :ingredients
+
 
   # def ingredient_ids=(ingredient_ids) 
   #   byebug

@@ -5,7 +5,13 @@
 <%=f.text_field :content %><br>
 <label>Image: </label>
 <%=f.text_field :image %><br>
-<%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+<%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br>
+<label>Ingredient:</label>
+
+<%= f.fields_for :ingredients do |ingredient| %>
+  <%= ingredient.label :id %>
+  <%= ingredient.text_field :name %>
+<%end%>
 <%= f.submit %>
 <%end%>
 

@@ -1,7 +1,7 @@
-
+<% if @current_user %>
 <a href = <%= profile_path%>>See Your Profile</a><br>
-
- <a href = <%=new_recipe_path%>>Create New Recipe! </a>
+<a href = <%=new_recipe_path%>>Create New Recipe! </a>
+<%end%>
 
 <%@recipes.each do |recipe|%>
 <h1><a href = <%=recipe_path(recipe.id)%>><%=recipe.title%></a></h1>
