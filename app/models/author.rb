@@ -3,7 +3,10 @@ class Author < ApplicationRecord
 	has_many :recipes
 	
 	def most_liked
-		recipes.maximum(bookmarks.count)
-		byebug
+		Recipe.where(author_id: self.id).joins(:bookmarks).group('recipes.title').order('count(*) desc limit 1').count('recipes.title')
+  	end
+
+  	def who_bookmarked
+
   	end
 end
