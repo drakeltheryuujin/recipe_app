@@ -7,7 +7,10 @@ class Author < ApplicationRecord
   		Recipe.find(most_liked_recipe_id[0])
   	end
 
-  	def who_bookmarked
-
+  	def view_who_bookmarked
+  		self.recipes.each do |recipe|
+  			recipe.who_bookmarked
+  		end
   	end
+ 
 end
