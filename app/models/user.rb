@@ -9,6 +9,8 @@ class User < ApplicationRecord
   	self.author.recipes.first
   end
 
+ 
+
 
   def search_by_fav_cuisine
     faves = Recipe.all.search(self.fav_cuisine)
