@@ -11,8 +11,8 @@ RSpec.describe Author, type: :model do
 		end
 		it 'shows the most_liked for an author' do
 			author.recipes = recipes
-
-			expect(author.most_liked).to eq(author.recipes.second)
+			most_popular_recipe = author.recipes.second
+			expect(author.most_liked).to eq(most_popular_recipe)
 		end
 	end
 end
