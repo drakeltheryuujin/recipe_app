@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     @user.reader = Reader.create(user_id: @user.id)
     session[:user_id] = @user.id
-    redirect_to user_path(@user.id)
+    redirect_to recipes_path
   end
 
   def show
@@ -17,6 +17,23 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    @user.save
+    redirect_to user_path
+  end
+
+  def delete
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_url
   end
 
   private
