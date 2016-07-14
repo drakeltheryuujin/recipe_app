@@ -13,10 +13,67 @@ Recipe.destroy_all
 Ingredient.destroy_all
 Bookmark.destroy_all
 
-user = User.create(name: 'Tom', password: 'baseball')
-user.reader = Reader.create(user_id: user.id)
-user.author = Author.create(user_id: user.id)
-recipe = Recipe.create(author_id: user.author.id, title: 'Chicken Pot Pie', content:'on nom nom...')
-Ingredient.create(name: 'chicken breast')
-Bookmark.create(reader_id: user.reader.id, recipe_id: recipe.id)
+user_1 = User.create(name: 'Lily', password: 'baseball', bio:"I'm cool", fav_cuisine:'cuban', image:"http://pixel.nymag.com/imgs/daily/vulture/2016/02/09/9-johnny-depp.w529.h529.jpg", allergies:"cucumber, sesame seeds, gluten", hometown:'San Mateo', email: 'lily@lily.com')
+
+user_2 = User.create(name: 'Rob', password: 'soccer', bio:"make something up", fav_cuisine:'japanese', image:'http://www.northerntool.com/images/product/2000x2000/547/547545_2000x2000.jpg', allergies:"chicken breast, peanuts", hometown:'Seattle', email: 'rob@bob.com')
+
+user_3 = User.create(name: 'Matz', password: 'ball', bio:"i started liking food when i was 11", fav_cuisine:'lebanese', image:'http://flatironschool.com/images/staff/jeff-katz.jpg', allergies:"lemon, lime, potato", hometown:'paris', email: 'matsumoto@ruby.com')
+
+user_4 =User.create(name: 'Avi', password: 'pingpong', bio:"orange is my fave color", fav_cuisine:'french', image:'http://paypizzapal.com/wp-content/uploads/2014/01/pizza-hut2.jpg', allergies:"cucumber, sesame seeds, gluten", hometown:'barcelona', email: 'avi@avi.com')
+
+user_1.reader = Reader.create(user_id: user_1.id)
+user_1.author = Author.create(user_id: user_1.id)
+user_2.reader = Reader.create(user_id: user_2.id)
+user_2.author = Author.create(user_id: user_2.id)
+user_3.reader = Reader.create(user_id: user_3.id)
+user_3.author = Author.create(user_id: user_3.id)
+user_4.reader = Reader.create(user_id: user_4.id)
+user_4.author = Author.create(user_id: user_4.id)
+
+recipe_1 = Recipe.create(author_id: user_1.author.id, image: 'https://s-media-cache-ak0.pinimg.com/736x/ef/b7/b7/efb7b74264af6831937d08dfac39e985.jpg', title: 'Japanese Poke!', 
+	content:'Slice the tuna: Using a sharp knife, cut the tuna into 1-inch cubes. Place in a large bowl. Combine all ingredients: Add the onions, garlic, sesame seeds, macadamia nuts, soy sauce, sesame oil, salt, and red pepper flakes. Gently mix until thoroughly combined.')
+ing_1 = Ingredient.create(name: 'tuna')
+ing_2 = Ingredient.create(name: 'seaweed')
+ing_3 = Ingredient.create(name: 'sesame seeds')
+ing_4 = Ingredient.create(name: 'lime')
+
+recipe_1.ingredients<< ing_1
+recipe_1.ingredients<< ing_2
+recipe_1.ingredients<< ing_3
+recipe_1.ingredients<< ing_4
+
+
+recipe_2 = Recipe.create(author_id: user_3.author.id, image: 'http://mealexmailex.com/wp-content/uploads/2014/10/double-cheese-beef-burger.jpg', title: 'Cuban Burgers', 
+	content:'DIRECTIONS
+Lightly oil grill& heat BBQ to medium.
+Whisk egg in a bowl& add next 6 ingredients.
+Add any of the “stir-ins” that appeal to you.
+Crumble in beef& using your hands or a fork, gently mix together.
+Handle the meat as little as possible – the more you work it, the tougher it gets.
+Gently shape (don’t firmly press) mixture into burgers about ¾ inch thick.
+Using your thumb, make a shallow depression in the centre of each burger to prevent puffing up during cooking.
+Place burgers on the grill, close lid& BBQ until NO LONGER PINK INSIDE, turning once, about 6 – 8 minutes per side.
+An instant read thermometer should read 160F.
+Dont abuse your burgers by pressing with a spatula, pricking with a fork or turning frequently as precious juices will be lost!
+Tuck into a warm crusty bun& add your favourite toppings.')
+
+ing_5 = Ingredient.create(name: 'egg')
+ing_6 = Ingredient.create(name: 'beef')
+ing_7 = Ingredient.create(name: 'bread')
+ing_8 = Ingredient.create(name: 'garlic')
+
+recipe_2.ingredients<< ing_5
+recipe_2.ingredients<< ing_6
+recipe_2.ingredients<< ing_7
+recipe_2.ingredients<< ing_8
+
+
+
+Bookmark.create(reader_id: user_3.reader.id, recipe_id: recipe_2.id)
+Bookmark.create(reader_id: user_4.reader.id, recipe_id: recipe_1.id)
+Bookmark.create(reader_id: user_1.reader.id, recipe_id: recipe_2.id)
+Bookmark.create(reader_id: user_4.reader.id, recipe_id: recipe_1.id)
+
+
+
 
