@@ -12,5 +12,4 @@ class Author < ApplicationRecord
   			recipe.who_bookmarked
   		end
   	end
- 
 end

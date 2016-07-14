@@ -1213,3 +1213,63 @@ ORDER BY c.conname
   [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(recipes.id) AS count_recipes_id, recipes.id AS recipes_id FROM "recipes" INNER JOIN "bookmarks" ON "bookmarks"."recipe_id" = "recipes"."id" WHERE "recipes"."author_id" = $1 GROUP BY recipes.id[0m  [["author_id", 31]]
   [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
   [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "avi"], ["password_digest", "$2a$04$W0UfT1HWca2EUcMQxOlD8OnEaFkHAbHCp45oyFCYY.EIbzEFEx6mi"], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (5.7ms)[0m  [1m[32mINSERT INTO "authors" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 45], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Salad"], ["author_id", 32], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Salad"], ["author_id", 32], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Salad"], ["author_id", 32], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "tom"], ["password_digest", "$2a$04$UYe2dJTCeTc0F8m2YhfEbuJA1hzHFWwJknZxjH.Bnej5fzdVgn8YG"], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "readers" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 46], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "bookmarks" ("recipe_id", "reader_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 81], ["reader_id", 14], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bookmarks" ("recipe_id", "reader_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 81], ["reader_id", 14], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "tom"], ["password_digest", "$2a$04$MOftW.CZHBA9RuWuK3dprOqMKTGEn9KLzce3TDwDeomxRoZ58irPq"], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "readers" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 47], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "bookmarks" ("recipe_id", "reader_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 82], ["reader_id", 15], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bookmarks" ("recipe_id", "reader_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 82], ["reader_id", 15], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "bookmarks" ("recipe_id", "reader_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 82], ["reader_id", 15], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "tom"], ["password_digest", "$2a$04$2ajmSkmLSXCw8Cpg8CFtguoOQXUB106tuJQeP.FjFhQd3k5MMCerW"], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "readers" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 48], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "bookmarks" ("recipe_id", "reader_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 83], ["reader_id", 16], ["created_at", 2016-07-14 21:26:00 UTC], ["updated_at", 2016-07-14 21:26:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."author_id" = $1[0m  [["author_id", 32]]
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT COUNT(recipes.id) AS count_recipes_id, recipes.id AS recipes_id FROM "recipes" INNER JOIN "bookmarks" ON "bookmarks"."recipe_id" = "recipes"."id" WHERE "recipes"."author_id" = $1 GROUP BY recipes.id[0m  [["author_id", 32]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 82], ["LIMIT", 1]]
+  [1m[35m (3.2ms)[0m  [1m[31mROLLBACK[0m

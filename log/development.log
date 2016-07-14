@@ -12887,3 +12887,59 @@ app/views/users/profile.html.erb:3:in `_app_views_users_profile_html_erb__146790
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 19], ["created_at", 2016-07-14 17:43:40 UTC], ["updated_at", 2016-07-14 17:43:40 UTC]]
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2016-07-14 17:24:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 581ms (Views: 557.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2016-07-14 17:24:45 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (640.7ms)
+Completed 200 OK in 724ms (Views: 666.3ms | ActiveRecord: 12.9ms)
+
+
+Started POST "/users" for ::1 at 2016-07-14 17:24:59 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ekp+cRt/ocsnY6ZlzfPdx+uLMXguyxo1sjXU8S2tOtf4Lfk7g7vDNprr1n2a+Tl178fZ8Puluzw4Xt3aNqX4tg==", "user"=>{"name"=>"baby", "fav_cuisine"=>"", "bio"=>"", "image"=>"", "allergies"=>"cucumber, chicken breast", "hometown"=>"", "email"=>"5", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (2.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (9.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "fav_cuisine", "bio", "image", "allergies", "hometown", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "baby"], ["fav_cuisine", ""], ["bio", ""], ["image", ""], ["allergies", "cucumber, chicken breast"], ["hometown", ""], ["email", "5"], ["password_digest", "$2a$10$PIg0C8nHMDYmLNp7Ecss/OME9M0tSma7.9k70Gt19RmdeozPhrava"], ["created_at", 2016-07-14 21:24:59 UTC], ["updated_at", 2016-07-14 21:24:59 UTC]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "readers" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 20], ["created_at", 2016-07-14 21:24:59 UTC], ["updated_at", 2016-07-14 21:24:59 UTC]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT  "readers".* FROM "readers" WHERE "readers"."user_id" = $1 LIMIT $2[0m  [["user_id", 20], ["LIMIT", 1]]
+Redirected to http://localhost:3000/recipes
+Completed 302 Found in 218ms (ActiveRecord: 27.1ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-14 17:24:59 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered recipes/index.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 82ms (Views: 53.3ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/profile" for ::1 at 2016-07-14 17:25:20 -0400
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = $1 LIMIT $2[0m  [["user_id", 20], ["LIMIT", 1]]
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT  "readers".* FROM "readers" WHERE "readers"."user_id" = $1 LIMIT $2[0m  [["user_id", 20], ["LIMIT", 1]]
+  [1m[36mBookmark Load (0.6ms)[0m  [1m[34mSELECT "bookmarks".* FROM "bookmarks" WHERE "bookmarks"."reader_id" = $1[0m  [["reader_id", 12]]
+  Rendered users/profile.html.erb within layouts/application (46.6ms)
+Completed 200 OK in 79ms (Views: 65.0ms | ActiveRecord: 8.6ms)
+
+
