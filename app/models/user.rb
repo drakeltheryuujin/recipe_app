@@ -9,5 +9,7 @@ class User < ApplicationRecord
   	self.author.recipes.first
   end
 
+ 
+
 
 end
