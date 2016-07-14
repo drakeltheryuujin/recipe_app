@@ -27,6 +27,7 @@
 *.sqlite
 .byebug_history
 log/development.log
+tmp/*
 
 # OS generated files #
 ######################

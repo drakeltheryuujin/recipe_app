@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
       params[:recipe][:ingredients_attributes].each do |id, name|
         @recipe.ingredients << Ingredient.find_or_create_by(name: name[:name])
       end
-    @recipe.save 
+    @recipe.save
     redirect_to recipe_path(@recipe)
   end
 
