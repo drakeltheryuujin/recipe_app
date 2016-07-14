@@ -2,21 +2,28 @@
 
 <p><%= image_tag @user.image, size: "200x200" %></p>
 <p><%= link_to 'Edit Your Profile', edit_user_path(@user.id)%><p>
-<p><%= @user.hometown %></p>
-<p><%= @user.email %></p>
-<p><%= @user.bio %></p>
-<p><%= @user.fav_cuisine %></p>
-<small><%= @user.allergies %></small>
+<p><strong>Hometown:</strong> <%= @user.hometown %></p>
+<p><strong>Email:</strong> <%= @user.email %></p>
+<p><strong>About Me:</strong> <%= @user.bio %></p>
+<p><strong>Favorite Cuisine:</strong> <%= @user.fav_cuisine %></p>
+<small><strong>Food Allergies:</strong> <%= @user.allergies %></small>
 
 <% if @user.author %>
-	<label>My Recipes:</label><br>
-	<% @user.author.recipes.each do |recipe| %>
-	<%= link_to recipe.title, recipe_path(recipe)%><br>
-	<%end%>
+  <label>My Recipes:</label><br>
+  <% @user.author.recipes.each do |recipe| %>
+  <%= link_to recipe.title, recipe_path(recipe)%><br>
+  <%end%>
 <% end %>
 
-<ul><% @user.reader.bookmarks.each do |bookmark| %>
-	<li><p><%= bookmark.recipe_title %></p>
-	<p><%= bookmark.truncate_content %></p></li>
+<% if @user.reader %>  
+  <ul>
+  <% @user.reader.bookmarks.each do |bookmark| %>
+    <li><p><%= bookmark.recipe_title %></p>
+    <p><%= bookmark.truncate_content %></p></li>
+  <% end %>
+  </ul>
 <% end %>
-</ul>
+
+<button>
+  <%= link_to "Log Out", log_out_path %>
+</button>

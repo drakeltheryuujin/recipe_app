@@ -1,4 +1,6 @@
 class Bookmark < ApplicationRecord
+  validates :recipe_id, uniqueness: true
+  
   belongs_to :reader
   belongs_to :recipe
 

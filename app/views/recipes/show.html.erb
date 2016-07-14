@@ -1,5 +1,3 @@
-
-
 <h1><%=@recipe.title%></h1>
 <p>By <%=@recipe.author.user.name%></p><br>
 <label>Ingredients:</label>
@@ -11,11 +9,14 @@
 <label>Instructions:</label>
 <p><%=@recipe.content%></p>
 
-Bookmarks:
-<%= form_for @bookmark do |f| %>
-<%= f.hidden_field :recipe_id, :value => @recipe.id %>
-<%= f.hidden_field :reader_id, :value => @user.reader.id %>
-<%= f.submit "Bookmark" %>
-
-<% end %>
+  Like it? Bookmark this!
+  <%= form_for @bookmark do |f| %>
+    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+    <%= f.hidden_field :reader_id, :value => @user.reader.id %>
+    <% if !@user.reader.is_bookmarked?(@recipe) %>
+      <%= f.submit "Bookmark" %>
+    <% else %>
+      <%= f.submit "Bookmarked!", :disabled => "disabled" %>
+    <% end %>
+  <% end %>
 
