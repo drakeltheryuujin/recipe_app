@@ -6,4 +6,9 @@ class User < ApplicationRecord
   has_one :reader
 
 
+  def search_by_fav_cuisine
+    faves = Recipe.all.search(self.fav_cuisine)
+    faves[0..5]
+  end
+
 end

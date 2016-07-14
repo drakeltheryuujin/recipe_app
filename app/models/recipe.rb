@@ -39,6 +39,15 @@ class Recipe < ApplicationRecord
     # 1 (cucumber) is the most used ingredient. 9 is the count. 
   end
 
+  def self.search_by_ingredient(ingredient)
+    Recipe.joins(:ingredients).where("ingredients.name = '#{ingredient}'")
+  end
+
+  def self.search(cuisine)
+    Recipe.where("title like ?", "%#{cuisine}%")
+  end
+
+
   def who_bookmarked
     recipe.bookmarks.map do |bookmark|
       Reader.find(bookmark.reader_id).user
