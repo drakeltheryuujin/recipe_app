@@ -1,9 +1,18 @@
 <h1>My Shopping List</h1>
-<% @shopping_list.line_items.each do |line_item|%>
+
+<%@shopping_list.count_same_ingredients.each do |ingredient, count|%>
+  <ul><%if count > 1 %>
+    <li><%= "#{count} #{ingredient}s" %><br></li>
+  <%else%>
+    <li><%= "#{count} #{ingredient}" %><br></li>
+  <%end%></ul>
+<%end%>
+
+<!--<% @shopping_list.line_items.each do |line_item|%>
 	<%= line_item.ingredient.name%>  
-<!-- 	<%= @shopping_list%>
- -->	<br>
-	<%end%>
+ 	<%= @shopping_list%>
+	<br>
+	<%end%> -->
 
 
 
