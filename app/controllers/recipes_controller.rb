@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   def index
     @current_user = current_user
     if params[:search]
-      @recipes = Recipe.search(params[:search])
+      @recipes = Recipe.search(params[:search]) + Recipe.search_by_ingredient(params[:search])
     else
       @recipes = Recipe.all
     end
@@ -29,7 +29,9 @@ class RecipesController < ApplicationController
     @author = Author.find_or_create_by(user_id: session[:user_id])
     @recipe.author = @author
       params[:recipe][:ingredients_attributes].each do |id, name|
-        @recipe.ingredients << Ingredient.find_or_create_by(name: name[:name])
+        if name[:name] != "" 
+          @recipe.ingredients << Ingredient.find_or_create_by(name: name[:name])
+        end
       end
     @recipe.save
     redirect_to recipe_path(@recipe)
