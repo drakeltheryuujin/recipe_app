@@ -7,10 +7,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+<%= link_to 'Home',recipes_path%> 
 
-<% if session[:user_id] %>
+<% if current_user %> | 
 <a href = <%=new_recipe_path%>>Create New Recipe</a> |
-<a href = <%= profile_path%>>See Your Profile</a> |
+<a href = <%= profile_path%>>See Your Profile</a> | 
+<%= link_to 'See My Shopping List', shopping_list_path(User.find(session[:user_id]).shopping_list.id)%> | 
 <%=link_to 'Log Out', '/log_out'%>
 <p>
 <%end%>
