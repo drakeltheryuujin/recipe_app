@@ -8,6 +8,7 @@
 <p><strong>About Me:</strong> <%= @user.bio %></p>
 <p><strong>Favorite Cuisine:</strong> <%= @user.fav_cuisine %></p>
 <strong>Food Allergies:</strong> <%= @user.allergies %><br><br>
+<strong> <%= link_to 'See My Shopping List', shopping_list_path(@user.shopping_list.id)%></strong><br>
 <ul>
 <% if @user.author %>
  <strong><label>My Recipes:</label></strong><br>
@@ -17,6 +18,8 @@
 </ul>
 <% end %>
 <br>
+
+
 
 <ul>
 <% if @user.reader && @user.reader.bookmarks.count != 0 %>

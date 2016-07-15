@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   def index
     @current_user = current_user
     if params[:search]
-      @recipes = Recipe.search(params[:search]) + Recipe.search_by_ingredient(params[:search])
+      @recipes = Recipe.search(params[:search].downcase) + Recipe.search_by_ingredient(params[:search])
     else
       @recipes = Recipe.all
     end

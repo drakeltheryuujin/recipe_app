@@ -96,7 +96,10 @@ recipe_4.ingredients<< ing_14
 recipe_4.ingredients<< ing_15
 recipe_4.ingredients<< ing_16
 
-
+ShoppingList.create(user_id:user_1.id)
+ShoppingList.create(user_id:user_2.id)
+ShoppingList.create(user_id:user_3.id)
+ShoppingList.create(user_id:user_4.id)
 
 
 Bookmark.create(reader_id: user_3.reader.id, recipe_id: recipe_2.id)
