@@ -2,8 +2,12 @@ class RecipesController < ApplicationController
 
 
   def index
-    @recipes = Recipe.all
     @current_user = current_user
+    if params[:search]
+      @recipes = Recipe.search(params[:search])
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show 

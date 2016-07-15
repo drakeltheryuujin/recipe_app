@@ -1,3 +1,4 @@
+<%= link_to 'HOME',recipes_path%>
 <h1><%= @user.name %></h1>
 
 <p><%= image_tag @user.image, size: "200x200" %></p>
@@ -6,24 +7,29 @@
 <p><strong>Email:</strong> <%= @user.email %></p>
 <p><strong>About Me:</strong> <%= @user.bio %></p>
 <p><strong>Favorite Cuisine:</strong> <%= @user.fav_cuisine %></p>
-<small><strong>Food Allergies:</strong> <%= @user.allergies %></small>
-
+<strong>Food Allergies:</strong> <%= @user.allergies %><br><br>
+<ul>
 <% if @user.author %>
-  <label>My Recipes:</label><br>
+ <strong><label>My Recipes:</label></strong><br>
   <% @user.author.recipes.each do |recipe| %>
   <%= link_to recipe.title, recipe_path(recipe)%><br>
   <%end%>
+</ul>
 <% end %>
+<br>
 
-<% if @user.reader %>  
-  <ul>
+<ul>
+<% if @user.reader %>
+ <strong><label>My Bookmarks:</label></strong><br>
+
   <% @user.reader.bookmarks.each do |bookmark| %>
-    <li><p><%= bookmark.recipe_title %></p>
+  <%= link_to bookmark.recipe.title, recipe_path(bookmark.recipe)%><br>
+
+
     <p><%= bookmark.truncate_content %></p></li>
   <% end %>
   </ul>
-<% end %>
-
-<button>
+<%end%>
+<br><br><button>
   <%= link_to "Log Out", log_out_path %>
 </button>

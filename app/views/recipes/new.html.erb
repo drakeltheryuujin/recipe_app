@@ -1,16 +1,16 @@
 <%= form_for @recipe do |f|%>
 <label>Title: </label><br>
-<%=f.text_field :title %><br>
-<label>Content: </label>
-<%=f.text_field :content %><br>
-<label>Image: </label>
-<%=f.text_field :image %><br>
-<%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br>
-<label>Ingredient:</label>
+<%=f.text_field :title %><br><br>
+<label>Content: </label><br>
+<%=f.text_field :content %><br><br>
+<label>Image: </label><br>
+<%=f.text_field :image %><br><br>
+<label>Ingredients:</label><br>
+<%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br><br>
 
 <%= f.fields_for :ingredients do |ingredient| %>
-  <%= ingredient.label :id %>
-  <%= ingredient.text_field :name %>
+
+  <%= ingredient.text_field :name %><br><br>
 <%end%>
 <%= f.submit %>
 <%end%>

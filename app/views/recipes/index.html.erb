@@ -1,9 +1,21 @@
 <% if @current_user %>
+<a href = <%=new_recipe_path%>>Create New Recipe </a><br>
 <a href = <%= profile_path%>>See Your Profile</a><br>
-<a href = <%=new_recipe_path%>>Create New Recipe! </a>
+<%=link_to 'Log Out', '/log_out'%>
+<p>
 <%end%>
 
+<%= form_tag recipes_path, :method => 'get' do %>
+<p>
+<%= text_field_tag :search%>
+<%= submit_tag 'Find A Recipe!'%>
+</p>
+<%end%>
+
+<!-- INSERT TOGGLE TO SHOW ONLY ALLERGY FREE RECIPES-->
 <%@recipes.each do |recipe|%>
 <h1><a href = <%=recipe_path(recipe.id)%>><%=recipe.title%></a></h1>
-<h3>Created by <a href = <%= user_path(recipe.author.user.id)%>><%=recipe.author.user.name%></a></h3>
+<div class="container">
+<img src='<%=recipe.image%>'></img>
+</div>
 <%end%>
