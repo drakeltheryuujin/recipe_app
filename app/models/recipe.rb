@@ -1,10 +1,12 @@
 class Recipe < ApplicationRecord
 
-  #validates :title, presence: true
+  validates :title, presence: true
+  validates :content, presence: true
   belongs_to :author
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
   has_many :bookmarks
+  has_many :reviews
   has_many :readers, through: :bookmarks
   accepts_nested_attributes_for :ingredients
 
@@ -59,4 +61,12 @@ class Recipe < ApplicationRecord
     end
   end
 
+  def recipe_rating
+    all_ratings = self.reviews.map do |review|
+      review[:rating]
+    end
+    total_reviews = self.reviews.count
+    sum = all_ratings.reduce(:+)
+    (sum)/(total_reviews)
+  end
 end

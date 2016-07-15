@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "static#index"
   resources :recipes
   resources :users
+  resources :reviews
   resources :bookmarks
   resources :line_items
 

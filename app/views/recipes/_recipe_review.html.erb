@@ -1,0 +1,27 @@
+<% @reviews.each do |review| %>
+  <li>
+    <figure>
+      <table>
+        <tr>
+          <td col width="70" valign="top">
+            <img src="<%= review.review_image_url %>" width="64">
+          </td>
+          <td valign="top">
+            <strong><%= review.review_username %></strong>
+            <br/>
+            <small>
+              <strong>Rating:</strong> <em><%= review.rating %></em>
+            </small>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <figcaption>
+              <p><%= review.content %></p>
+            <figcaption>
+          </td>
+        <tr>
+      </table>
+    </figure>
+  </li>
+<% end %>

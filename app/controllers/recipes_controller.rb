@@ -14,6 +14,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @bookmark = Bookmark.new
     @line_item = LineItem.new
+    @review = Review.new
+    @reviews = Review.where(recipe_id: @recipe.id)
     @user = current_user  
   end
 

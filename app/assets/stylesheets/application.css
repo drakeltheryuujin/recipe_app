@@ -36,16 +36,25 @@ input[type="submit"]:disabled {
 }
 .container
      {
-      width:300px;
      height:300px; 
-     display:block; 
-     position:relative;
-     overflow:hidden;
      }
 .container img 
     {
-     position:absolute;
-     top:0;
-     left:0; 
-     width:100%;
+     height:100%;
      }
+.reviews {
+  list-style-position: inside;
+  padding-left: 20px;
+}
+.reviews figure {
+  margin-top: 0;
+}
+
+.reviews li {
+  width: 33%;
+  float: left;
+}
+
+.reviews small em {
+  color: #ff0000;
+}
