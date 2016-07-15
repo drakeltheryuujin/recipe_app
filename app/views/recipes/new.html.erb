@@ -8,7 +8,7 @@
 <label>Image: </label><br>
 <%=f.text_field :image %><br><br>
 <label>Ingredients:</label><br>
-<%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br><br>
+<%= f.collection_check_boxes :ingredient_ids, Recipe.top_ingredients(10), :id, :name %><br><br>
 
 <%= f.fields_for :ingredients do |ingredient| %>
 

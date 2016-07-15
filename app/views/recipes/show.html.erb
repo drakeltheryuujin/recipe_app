@@ -8,15 +8,13 @@
 <label>Ingredients:</label>
 <ul>
 <%@recipe.ingredients.each_with_index do |ingredient|%>
+<%if ingredient.name != "" %>
 <li><%=ingredient.name%></li>
-
-
-
-
 <%= form_for @line_item do |f|%>
 <%= f.hidden_field :shopping_list_id, :value => @user.shopping_list.id%>
 <%= f.hidden_field :ingredient_id, :value => ingredient.id%>
 <%= f.submit "click to add" %>
+<%end%>
 
 <%end%>
 

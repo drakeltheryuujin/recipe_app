@@ -33,14 +33,19 @@ class Recipe < ApplicationRecord
     order("created_at desc limit #{num}").to_a
   end
 
-  def self.top_ingredients
-    RecipeIngredient.group('ingredient_id').order('count(*) desc limit 1').count('ingredient_id')
+  def self.top_ingredients(num)
+    top_ing_hash = RecipeIngredient.group('ingredient_id').order("count(*) desc limit #{num}").count('ingredient_id')
     # {1=>9}
     # 1 (cucumber) is the most used ingredient. 9 is the count. 
+    top_ingredients = []
+    top_ing_hash.each do |id, count|
+     top_ingredients<< Ingredient.find(id)
+    end
+    top_ingredients 
   end
 
   def self.search_by_ingredient(ingredient)
-    Recipe.joins(:ingredients).where("ingredients.name = '#{ingredient}'")
+    Recipe.joins(:ingredients).where("ingredients.name like ?", "%#{ingredient}%")
   end
 
   def self.search(cuisine)

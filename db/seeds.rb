@@ -12,6 +12,9 @@ Author.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
 Bookmark.destroy_all
+RecipeIngredient.destroy_all
+ShoppingList.destroy_all
+LineItem.destroy_all
 
 user_1 = User.create(name: 'Lily', password: 'baseball', bio:"I'm cool", fav_cuisine:'cuban', image:"http://pixel.nymag.com/imgs/daily/vulture/2016/02/09/9-johnny-depp.w529.h529.jpg", allergies:"cucumber, sesame seeds, gluten", hometown:'San Mateo', email: 'lily@lily.com')
 
