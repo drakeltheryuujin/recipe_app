@@ -1,4 +1,10 @@
 <h1>My Shopping List</h1>
 <% @shopping_list.line_items.each do |line_item|%>
-	<%= line_item.ingredient.name%><br>
+	<%= line_item.ingredient.name%>  
+<!-- 	<%= @shopping_list%>
+ -->	<br>
 	<%end%>
+
+
+
+<%= link_to 'Back', :back %>

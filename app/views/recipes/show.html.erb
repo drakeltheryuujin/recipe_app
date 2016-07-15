@@ -13,16 +13,14 @@
 <%= form_for @line_item do |f|%>
 <%= f.hidden_field :shopping_list_id, :value => @user.shopping_list.id%>
 <%= f.hidden_field :ingredient_id, :value => ingredient.id%>
-<%= f.submit "click to add" %>
+<%= f.submit "add to shopping list" %>
+<%end%>
+<%end%>
 <%end%>
 
-<%end%>
-
-
-
-
-<%end%>
-</ul><br>
+</ul>
+<%= link_to 'See my shopping list', shopping_list_path%>
+<br><br>
 <label>Instructions:</label>
 <p><%=@recipe.content%></p>
 
@@ -37,3 +35,5 @@
     <% end %>
   <% end %>
 
+<br>
+<%= link_to 'Back', :back %>

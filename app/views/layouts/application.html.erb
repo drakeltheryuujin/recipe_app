@@ -7,6 +7,17 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+
+<% if session[:user_id] %>
+<a href = <%=new_recipe_path%>>Create New Recipe</a> |
+<a href = <%= profile_path%>>See Your Profile</a> |
+<%=link_to 'Log Out', '/log_out'%>
+<p>
+<%end%>
+
+
+
+
     <%= yield %>
   </body>
 </html>
