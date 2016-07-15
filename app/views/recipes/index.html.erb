@@ -1,11 +1,3 @@
-<h1>KitchenGO</h1>
-
-<% if @current_user %>
-<a href = <%=new_recipe_path%>>Create New Recipe </a><br>
-<a href = <%= profile_path%>>See Your Profile</a><br>
-<%=link_to 'Log Out', '/log_out'%>
-<p>
-<%end%>
 
 <%= form_tag recipes_path, :method => 'get' do %>
 <p>
