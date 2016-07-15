@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     @user.reader = Reader.create(user_id: @user.id)
+    @user.shopping_list = ShoppingList.create(user_id: @user.id)
     session[:user_id] = @user.id
     redirect_to recipes_path
   end

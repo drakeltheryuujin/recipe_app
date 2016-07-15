@@ -4,6 +4,7 @@ class User < ApplicationRecord
   
   has_one :author
   has_one :reader
+  has_one :shopping_list
 
   def filter_allergies
   	allergy_array = self.allergies.split(/[\s,']/).reject { |c| c.empty? }
