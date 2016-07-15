@@ -13,6 +13,8 @@ class RecipesController < ApplicationController
   def show 
     @recipe = Recipe.find(params[:id])
     @bookmark = Bookmark.new
+    @comment = Comment.new
+    @comments = Comment.where(recipe_id = @recipe.id)
     @user = current_user  
   end
 

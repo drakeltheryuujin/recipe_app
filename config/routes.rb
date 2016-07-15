@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "static#index"
   resources :recipes
   resources :users
+  resources :comments
   resources :bookmarks
 
   post "/sessions" => "sessions#create"

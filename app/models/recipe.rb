@@ -1,10 +1,12 @@
 class Recipe < ApplicationRecord
 
-  #validates :title, presence: true
+  validates :title, presence: true
+  validates :content, presence: true
   belongs_to :author
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
   has_many :bookmarks
+  has_many :comments
   has_many :readers, through: :bookmarks
   accepts_nested_attributes_for :ingredients
 

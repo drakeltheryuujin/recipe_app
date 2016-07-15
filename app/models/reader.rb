@@ -1,6 +1,7 @@
 class Reader < ApplicationRecord
   belongs_to :user
   has_many :bookmarks
+  has_many :comments
   has_many :recipes, through: :bookmarks
 
   def is_bookmarked?(recipe)

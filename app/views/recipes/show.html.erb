@@ -14,7 +14,7 @@
 <label>Instructions:</label>
 <p><%=@recipe.content%></p>
 
-  Like it? Bookmark this!
+<h4>Like it? Bookmark this!</h4>
   <%= form_for @bookmark do |f| %>
     <%= f.hidden_field :recipe_id, :value => @recipe.id %>
     <%= f.hidden_field :reader_id, :value => @user.reader.id %>
@@ -24,4 +24,37 @@
       <%= f.submit "Bookmarked!", :disabled => "disabled" %>
     <% end %>
   <% end %>
+  <br/>
+  <br/>
 
+  <h4>Got something to say??? Say it!</h4>
+  <%= form_for @comment do |f| %>
+    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+    <%= f.hidden_field :reader_id, :value => @user.reader.id %>
+    <div>
+      <%= f.label :rating %>
+    </div>
+    <div>
+      <%= f.select :rating, [1, 2, 3, 4, 5] %>
+    </div>
+    <div>
+      <%= f.label :content, "Comment" %>
+    </div>
+    <div>
+      <%= f.text_area :content %>
+    </div>
+    <div>
+      <%= f.submit "Submit Comment" %>
+    </div>
+  <% end %>
+
+  <% @comments.each.do |comment| %>
+    <ol>
+      <li>
+        <img src="#">
+        <strong>User Name</strong>
+        <em>Rating</em>
+        <p>Comment Content</p>
+      </li>
+    </ol>
+  <% end %>
