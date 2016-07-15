@@ -1,0 +1,4 @@
+<h1>My Shopping List</h1>
+<% @shopping_list.line_items.each do |line_item|%>
+	<%= line_item.ingredient.name%><br>
+	<%end%>
