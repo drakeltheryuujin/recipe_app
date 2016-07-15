@@ -1,3 +1,5 @@
+<h1>KitchenGO</h1>
+
 <% if @current_user %>
 <a href = <%=new_recipe_path%>>Create New Recipe </a><br>
 <a href = <%= profile_path%>>See Your Profile</a><br>
@@ -14,7 +16,7 @@
 
 <!-- INSERT TOGGLE TO SHOW ONLY ALLERGY FREE RECIPES-->
 <%@recipes.each do |recipe|%>
-<h1><a href = <%=recipe_path(recipe.id)%>><%=recipe.title%></a></h1>
+<h1><a href = <%=recipe_path(recipe.id)%>><%=recipe.norm_title%></a></h1>
 <div class="container">
 <img src='<%=recipe.image%>'></img>
 </div>

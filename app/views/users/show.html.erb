@@ -1,16 +1,18 @@
+<%= link_to 'HOME',recipes_path%>
 <h1><%= @user.name %></h1>
 
 <p><%= image_tag @user.image, size: "200x200" %></p>
-<p><%= @user.hometown %></p>
-<p><%= @user.email %></p>
+<p>Hi! I'm from <%= @user.hometown %></p>
 <p><%= @user.bio %></p>
-<p><%= @user.fav_cuisine %></p>
-<small><%= @user.allergies %></small><br><br>
+<p>My favorite cuisine is <%= @user.fav_cuisine %></p>
+<p>I'm allergic to <%= @user.allergies %><br><br>
 
 <% if @user.author %>
-	<label>Recipes:</label><br>
+	<label><b>Check out my recipes!</b></label><br>
 	<% @user.author.recipes.each do |recipe| %>
-	<%= link_to recipe.title, recipe_path(recipe)%><br>
+	<ul>
+	<%= link_to recipe.norm_title, recipe_path(recipe)%><br>
+	</ul>
 	<%end%>
 <% end %>
 

@@ -1,5 +1,10 @@
-<h1><%=@recipe.title%></h1>
-<p>By <%=@recipe.author.user.name%></p><br>
+<%= link_to 'HOME',recipes_path%>
+
+<h1><%=@recipe.norm_title%></h1>
+<div class="container">
+<img src='<%=@recipe.image%>'></img>
+</div>
+<strong><p>By <%= link_to @recipe.author.user.name, user_path(@recipe.author.user.id) %></p></strong>
 <label>Ingredients:</label>
 <ul>
 <%@recipe.ingredients.each_with_index do |ingredient|%>

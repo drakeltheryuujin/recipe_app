@@ -23,7 +23,7 @@
  <strong><label>My Bookmarks:</label></strong><br>
 
   <% @user.reader.bookmarks.each do |bookmark| %>
-  <%= link_to bookmark.recipe.title, recipe_path(bookmark.recipe)%><br>
+  <%= link_to bookmark.recipe.norm_title, recipe_path(bookmark.recipe)%><br>
 
 
     <p><%= bookmark.truncate_content %></p></li>

@@ -80,7 +80,7 @@ recipe_3.ingredients<< ing_10
 recipe_3.ingredients<< ing_11
 recipe_3.ingredients<< ing_12
 
-recipe_4 = Recipe.create(author_id: user_1.author.id, image: 'https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e35/13398702_157682511317799_1823286872_n.jpg', title: 'Chicken Waffle', 
+recipe_4 = Recipe.create(author_id: user_4.author.id, image: 'https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e35/13398702_157682511317799_1823286872_n.jpg', title: 'Chicken Waffle', 
 	content:'Use a waffle cooker and get wings from popeye')
 
 ing_13 = Ingredient.create(name: 'chicken wings')
