@@ -19,7 +19,7 @@
 <br>
 
 <ul>
-<% if @user.reader %>
+<% if @user.reader && @user.reader.bookmarks.count != 0 %>
  <strong><label>My Bookmarks:</label></strong><br>
 
   <% @user.reader.bookmarks.each do |bookmark| %>

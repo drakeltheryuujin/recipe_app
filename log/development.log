@@ -16510,3 +16510,49 @@ Processing by RecipesController#index as HTML
 Completed 200 OK in 47ms (Views: 40.1ms | ActiveRecord: 1.8ms)
 
 
+Started GET "/recipes/31" for ::1 at 2016-07-15 01:41:43 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 90], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 89], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 31]]
+  [1m[36mReader Load (0.4ms)[0m  [1m[34mSELECT  "readers".* FROM "readers" WHERE "readers"."user_id" = $1 LIMIT $2[0m  [["user_id", 90], ["LIMIT", 1]]
+  [1m[36mRecipe Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "recipes" INNER JOIN "bookmarks" ON "recipes"."id" = "bookmarks"."recipe_id" WHERE "bookmarks"."reader_id" = $1 AND "recipes"."id" = $2 LIMIT $3[0m  [["reader_id", 78], ["id", 31], ["LIMIT", 1]]
+  Rendered recipes/show.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 76ms (Views: 67.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-15 01:41:47 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 90], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 55ms (Views: 50.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/profile" for ::1 at 2016-07-15 01:41:48 -0400
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 90], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = $1 LIMIT $2[0m  [["user_id", 90], ["LIMIT", 1]]
+  [1m[36mReader Load (2.4ms)[0m  [1m[34mSELECT  "readers".* FROM "readers" WHERE "readers"."user_id" = $1 LIMIT $2[0m  [["user_id", 90], ["LIMIT", 1]]
+  [1m[36mBookmark Load (0.4ms)[0m  [1m[34mSELECT "bookmarks".* FROM "bookmarks" WHERE "bookmarks"."reader_id" = $1[0m  [["reader_id", 78]]
+  Rendered users/profile.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 57ms (Views: 47.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/profile" for ::1 at 2016-07-15 01:42:40 -0400
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 90], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."user_id" = $1 LIMIT $2[0m  [["user_id", 90], ["LIMIT", 1]]
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT  "readers".* FROM "readers" WHERE "readers"."user_id" = $1 LIMIT $2[0m  [["user_id", 90], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "bookmarks" WHERE "bookmarks"."reader_id" = $1[0m  [["reader_id", 78]]
+  Rendered users/profile.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 35ms (Views: 31.4ms | ActiveRecord: 1.1ms)
+
+
