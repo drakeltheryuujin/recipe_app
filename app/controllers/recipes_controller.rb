@@ -2,8 +2,17 @@ class RecipesController < ApplicationController
 
 
   def index
-    @recipes = Recipe.all
-    @current_user = current_user
+    if @current_user
+      current_user
+    else
+      flash[:message] = "You're not signed in."
+      redirect_to root_url
+    end
+    if params[:search]
+      @recipes = Recipe.search(params[:search])
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show 
@@ -13,10 +22,16 @@ class RecipesController < ApplicationController
   end
 
   def new 
+    if @current_user
     @recipe = Recipe.new
       3.times do 
         @recipe.ingredients.build 
       end
+    else
+      flash[:message] = "You're not signed in."
+      redirect_to root_url
+    end
+
   end
 
   def create

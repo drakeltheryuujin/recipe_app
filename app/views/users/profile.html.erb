@@ -1,3 +1,4 @@
+<%= link_to 'HOME',recipes_path%>
 <h1><%= @user.name %></h1>
 
 <p><%= image_tag @user.image, size: "200x200" %></p>
@@ -6,10 +7,10 @@
 <p><strong>Email:</strong> <%= @user.email %></p>
 <p><strong>About Me:</strong> <%= @user.bio %></p>
 <p><strong>Favorite Cuisine:</strong> <%= @user.fav_cuisine %></p>
-<small><strong>Food Allergies:</strong> <%= @user.allergies %></small>
-
+<strong>Food Allergies:</strong> <%= @user.allergies %>
+</p>
 <% if @user.author %>
-  <label>My Recipes:</label><br>
+  <strong><label>My Recipes:</label></strong><br>
   <% @user.author.recipes.each do |recipe| %>
   <%= link_to recipe.title, recipe_path(recipe)%><br>
   <%end%>

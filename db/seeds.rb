@@ -30,7 +30,7 @@ user_3.author = Author.create(user_id: user_3.id)
 user_4.reader = Reader.create(user_id: user_4.id)
 user_4.author = Author.create(user_id: user_4.id)
 
-recipe_1 = Recipe.create(author_id: user_1.author.id, image: 'https://s-media-cache-ak0.pinimg.com/736x/ef/b7/b7/efb7b74264af6831937d08dfac39e985.jpg', title: 'Japanese Poke!', 
+recipe_1 = Recipe.create(author_id: user_1.author.id, image: 'https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e35/13736961_131083353991134_1314770854_n.jpg', title: 'Japanese Poke!', 
 	content:'Slice the tuna: Using a sharp knife, cut the tuna into 1-inch cubes. Place in a large bowl. Combine all ingredients: Add the onions, garlic, sesame seeds, macadamia nuts, soy sauce, sesame oil, salt, and red pepper flakes. Gently mix until thoroughly combined.')
 ing_1 = Ingredient.create(name: 'tuna')
 ing_2 = Ingredient.create(name: 'seaweed')
@@ -43,7 +43,7 @@ recipe_1.ingredients<< ing_3
 recipe_1.ingredients<< ing_4
 
 
-recipe_2 = Recipe.create(author_id: user_3.author.id, image: 'http://mealexmailex.com/wp-content/uploads/2014/10/double-cheese-beef-burger.jpg', title: 'Cuban Burgers', 
+recipe_2 = Recipe.create(author_id: user_3.author.id, image: 'https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e35/13734419_1253516674668157_1459468106_n.jpg', title: 'Cuban Burgers', 
 	content:'DIRECTIONS
 Lightly oil grill& heat BBQ to medium.
 Whisk egg in a bowl& add next 6 ingredients.
@@ -66,6 +66,33 @@ recipe_2.ingredients<< ing_5
 recipe_2.ingredients<< ing_6
 recipe_2.ingredients<< ing_7
 recipe_2.ingredients<< ing_8
+
+recipe_3 = Recipe.create(author_id: user_2.author.id, image: 'https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e35/13562077_1049077925129404_1042970027_n.jpg', title: 'Smoked Salmon', 
+	content:'Get fresh ingredients and just stir everything with ponzu sauce :D')
+
+ing_9 = Ingredient.create(name: 'raddish')
+ing_10 = Ingredient.create(name: 'salmon')
+ing_11 = Ingredient.create(name: 'vinegar')
+ing_12 = Ingredient.create(name: 'romaine')
+
+recipe_3.ingredients<< ing_9
+recipe_3.ingredients<< ing_10
+recipe_3.ingredients<< ing_11
+recipe_3.ingredients<< ing_12
+
+recipe_4 = Recipe.create(author_id: user_1.author.id, image: 'https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e35/13398702_157682511317799_1823286872_n.jpg', title: 'Chicken Waffle', 
+	content:'Use a waffle cooker and get wings from popeye')
+
+ing_13 = Ingredient.create(name: 'chicken wings')
+ing_14 = Ingredient.create(name: 'waffle')
+ing_15 = Ingredient.create(name: 'maple syrup')
+ing_16 = Ingredient.create(name: 'scallion')
+
+recipe_4.ingredients<< ing_13
+recipe_4.ingredients<< ing_14
+recipe_4.ingredients<< ing_15
+recipe_4.ingredients<< ing_16
+
 
 
 

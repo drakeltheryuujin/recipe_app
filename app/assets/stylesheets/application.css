@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+html *
+{
+   font-size: 1em;
+   color: #000;
+   font-family: Verdana;
+}
 
 input[type="submit"], button {
   border-radius: 3px;
@@ -27,3 +33,18 @@ input[type="submit"]:disabled {
   border-color: #c3bbd0;
   cursor: not-allowed;
 }
+.container
+     {
+      width:300px;
+     height:300px; 
+     display:block; 
+     position:relative;
+     overflow:hidden;
+     }
+.container img 
+    {
+     position:absolute;
+     top:0;
+     left:0; 
+     width:100%;
+     }

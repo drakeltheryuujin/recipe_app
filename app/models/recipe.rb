@@ -12,11 +12,11 @@ class Recipe < ApplicationRecord
     write_attribute(:title, title.downcase)
   end
 
-  def title
-    read_attribute(:title).split.map do |word|
-      word.capitalize
-    end.join(" ")
-  end
+  # def title
+  #   read_attribute(:title).split.map do |word|
+  #     word.capitalize
+  #   end.join(" ")
+  # end
 
   def self.most_bookmarked(num)
     top_bookmark_hash = Bookmark.group('recipe_id').order("count(*) desc limit #{num}").count('recipe_id')

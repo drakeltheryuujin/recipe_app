@@ -1,9 +1,27 @@
+
 <% if @current_user %>
+<a href = <%=new_recipe_path%>>Create New Recipe </a><br>
 <a href = <%= profile_path%>>See Your Profile</a><br>
-<a href = <%=new_recipe_path%>>Create New Recipe! </a>
+<%=link_to 'Log Out', '/log_out'%>
+<p>
 <%end%>
 
-<%@recipes.each do |recipe|%>
+<%= form_tag recipes_path, :method => 'get' do %>
+<p>
+<%= text_field_tag :search%>
+<%= submit_tag 'Find A Recipe!'%>
+</p>
+<%end%>
+
+
+<p>Allergic? Click to see recipes that are safe for you!</p>
+
+
+
+<%@current_user.filter_allergies.each do |recipe|%>
 <h1><a href = <%=recipe_path(recipe.id)%>><%=recipe.title%></a></h1>
+<div class="container">
+<img src='<%=recipe.image%>'></img>
+</div>
 <h3>Created by <a href = <%= user_path(recipe.author.user.id)%>><%=recipe.author.user.name%></a></h3>
 <%end%>
