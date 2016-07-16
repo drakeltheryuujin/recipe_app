@@ -8,7 +8,7 @@ class ShoppingList < ApplicationRecord
 	end
 
   def count_same_ingredients
-    self.class.joins(:ingredients).group('ingredients.name').count('ingredients.name').sort.reverse
+    self.class.joins(:ingredients).where(user_id: self.user.id).group('ingredients.name').count('ingredients.name').sort.reverse
   end
 
 	# def count_same_ingredient(target_ingredient)
