@@ -43488,3 +43488,1102 @@ Processing by ShoppingListsController#edit as HTML
 Completed 200 OK in 85ms (Views: 57.2ms | ActiveRecord: 6.7ms)
 
 
+Started GET "/" for ::1 at 2016-07-17 14:14:45 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (5.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.0) lib/active_record/migration.rb:572:in `check_pending!'
+activerecord (5.0.0) lib/active_record/migration.rb:548:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+puma (3.4.0) lib/puma/configuration.rb:224:in `call'
+puma (3.4.0) lib/puma/server.rb:569:in `handle_request'
+puma (3.4.0) lib/puma/server.rb:406:in `process_client'
+puma (3.4.0) lib/puma/server.rb:271:in `block in run'
+puma (3.4.0) lib/puma/thread_pool.rb:114:in `call'
+puma (3.4.0) lib/puma/thread_pool.rb:114:in `block in spawn_thread'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.1ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (138.9ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateLineItems (20160715145420)
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (39.1ms)[0m  [1m[35mCREATE TABLE "line_items" ("id" serial primary key, "cart_id" integer, "ingredient_id" integer, "price" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (4.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160715145420"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateShoppingLists (20160715150045)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "shopping_lists" ("id" serial primary key, "user_id" integer, "total_price" float)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160715150045"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddShoppingListIdToLineItems (20160715153721)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "line_items" ADD "shopping_list_id" integer[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "line_items" DROP "cart_id"[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160715153721"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeCommentsToReviews (20160715200805)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "reviews" RENAME TO "reviews"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+Started GET "/" for ::1 at 2016-07-17 14:15:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.0) lib/active_record/migration.rb:572:in `check_pending!'
+activerecord (5.0.0) lib/active_record/migration.rb:548:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+puma (3.4.0) lib/puma/configuration.rb:224:in `call'
+puma (3.4.0) lib/puma/server.rb:569:in `handle_request'
+puma (3.4.0) lib/puma/server.rb:406:in `process_client'
+puma (3.4.0) lib/puma/server.rb:271:in `block in run'
+puma (3.4.0) lib/puma/thread_pool.rb:114:in `call'
+puma (3.4.0) lib/puma/thread_pool.rb:114:in `block in spawn_thread'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (89.0ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeCommentsToReviews (20160715200805)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "reviews" RENAME TO "reviews"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+Started GET "/recipes" for ::1 at 2016-07-17 14:21:02 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.0) lib/active_record/migration.rb:572:in `check_pending!'
+activerecord (5.0.0) lib/active_record/migration.rb:548:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+puma (3.4.0) lib/puma/configuration.rb:224:in `call'
+puma (3.4.0) lib/puma/server.rb:569:in `handle_request'
+puma (3.4.0) lib/puma/server.rb:406:in `process_client'
+puma (3.4.0) lib/puma/server.rb:271:in `block in run'
+puma (3.4.0) lib/puma/thread_pool.rb:114:in `call'
+puma (3.4.0) lib/puma/thread_pool.rb:114:in `block in spawn_thread'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.9ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (90.8ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeCommentsToReviews (20160715200805)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "reviews" RENAME TO "reviews"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeCommentsToReviews (20160715200805)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "reviews" RENAME TO "reviews"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddShoppingListIdToLineItems (20160715153721)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "line_items" ADD "cart_id" integer[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "line_items" DROP "shopping_list_id"[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160715153721"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (17.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'authors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'bookmarks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ingredients'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'line_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'readers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'recipe_ingredients'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'recipes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'shopping_lists'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddShoppingListIdToLineItems (20160715153721)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "line_items" ADD "shopping_list_id" integer[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "line_items" DROP "cart_id"[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160715153721"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeCommentsToReviews (20160715200805)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "reviews" RENAME TO "reviews"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeCommentsToReviews (20160715200805)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "comments" RENAME TO "reviews"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "public"."comments_id_seq" RENAME TO "reviews_id_seq"[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER INDEX "comments_pkey" RENAME TO "reviews_pkey"[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160715200805"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'authors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'bookmarks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ingredients'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'line_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.4ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'readers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'recipe_ingredients'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'recipes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reviews'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'shopping_lists'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8277932024918942610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8277932024918942610)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'authors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'bookmarks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ingredients'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'line_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'readers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'recipe_ingredients'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'recipes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reviews'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'shopping_lists'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/" for ::1 at 2016-07-17 14:48:46 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mShoppingList Load (0.9ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 30], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1809ms (ActiveRecord: 13.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    15: <% if current_user %> | 
+    16: <%= link_to 'Create New Recipe', new_recipe_path%> |
+    17: <%= link_to 'My Profile', profile_path%> | 
+    18: <%= link_to 'My Shopping List', shopping_list_path(current_user.shopping_list.id)%> | 
+    19: 
+    20: <%= link_to 'Log Out', '/log_out'%>
+    21: <p>
+  
+app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__1256730189417754525_70106610396420'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.8ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (97.8ms)
+Started GET "/recipes" for ::1 at 2016-07-17 14:51:27 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (32.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mShoppingList Load (0.4ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 30], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 10.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    15: <% if current_user %> | 
+    16: <%= link_to 'Create New Recipe', new_recipe_path%> |
+    17: <%= link_to 'My Profile', profile_path%> | 
+    18: <%= link_to 'My Shopping List', shopping_list_path(current_user.shopping_list.id)%> | 
+    19: 
+    20: <%= link_to 'Log Out', '/log_out'%>
+    21: <p>
+  
+app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__1256730189417754525_70106605869700'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.2ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (91.9ms)
+Started GET "/recipes" for ::1 at 2016-07-17 14:54:23 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.9ms)
+
+
+  
+SyntaxError (/Users/dan/Development/recipe_app/app/views/layouts/application.html.erb:18: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...current_user.shopping_list.id));@output_buffer.safe_append='...
+...                               ^
+/Users/dan/Development/recipe_app/app/views/layouts/application.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/Users/dan/Development/recipe_app/app/views/layouts/application.html.erb:24: syntax error, unexpected keyword_else, expecting ')'
+'.freeze; else 
+              ^
+/Users/dan/Development/recipe_app/app/views/layouts/application.html.erb:27: syntax error, unexpected keyword_end, expecting ')'
+/Users/dan/Development/recipe_app/app/views/layouts/application.html.erb:38: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/dan/Development/recipe_app/app/views/layouts/application.html.erb:40: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/layouts/application.html.erb:18: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+app/views/layouts/application.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
+app/views/layouts/application.html.erb:24: syntax error, unexpected keyword_else, expecting ')'
+app/views/layouts/application.html.erb:27: syntax error, unexpected keyword_end, expecting ')'
+app/views/layouts/application.html.erb:38: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/application.html.erb:40: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.2ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (94.5ms)
+Started GET "/recipes" for ::1 at 2016-07-17 14:54:59 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.0ms)
+
+
+  
+SyntaxError (/Users/dan/Development/recipe_app/app/views/layouts/application.html.erb:19: syntax error, unexpected tIDENTIFIER, expecting ')'
+...hopping_list shopping_list_path current_usershopping_list.id...
+...                               ^
+/Users/dan/Development/recipe_app/app/views/layouts/application.html.erb:19: syntax error, unexpected ')', expecting keyword_end
+... current_usershopping_list.id));@output_buffer.safe_append='...
+...                               ^):
+  
+app/views/layouts/application.html.erb:19: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/application.html.erb:19: syntax error, unexpected ')', expecting keyword_end
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.4ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (106.0ms)
+Started GET "/recipes" for ::1 at 2016-07-17 14:55:23 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.9ms)
+
+
+  
+SyntaxError (/Users/dan/Development/recipe_app/app/views/layouts/application.html.erb:19: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+..._path current_usershopping_list.id));@output_buffer.safe_app...
+...                               ^
+/Users/dan/Development/recipe_app/app/views/layouts/application.html.erb:19: syntax error, unexpected ')', expecting keyword_end
+... current_usershopping_list.id));@output_buffer.safe_append='...
+...                               ^):
+  
+app/views/layouts/application.html.erb:19: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/layouts/application.html.erb:19: syntax error, unexpected ')', expecting keyword_end
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.6ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (86.8ms)
+Started GET "/recipes" for ::1 at 2016-07-17 14:55:47 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `current_usershopping_list' for #<#<Class:0x007f85eafc0068>:0x007f85f2980718>):
+    16: <%= link_to 'Create New Recipe', new_recipe_path%> |
+    17: <%= link_to 'My Profile', profile_path%> | 
+    18:   <% if %>
+    19:   <%= link_to 'My Shopping List', shopping_list_path(current_usershopping_list.id)%> | 
+    20:   <% end %>
+    21: 
+    22: <%= link_to 'Log Out', '/log_out'%>
+  
+app/views/layouts/application.html.erb:19:in `_app_views_layouts_application_html_erb__1256730189417754525_70106622607720'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.7ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (86.9ms)
+Started GET "/recipes" for ::1 at 2016-07-17 14:56:01 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (3.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mShoppingList Load (0.3ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 30], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    16: <%= link_to 'Create New Recipe', new_recipe_path%> |
+    17: <%= link_to 'My Profile', profile_path%> | 
+    18:   <% if %>
+    19:   <%= link_to 'My Shopping List', shopping_list_path(current_user.shopping_list.id)%> | 
+    20:   <% end %>
+    21: 
+    22: <%= link_to 'Log Out', '/log_out'%>
+  
+app/views/layouts/application.html.erb:19:in `_app_views_layouts_application_html_erb__1256730189417754525_70106616048820'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.0ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (89.6ms)
+Started GET "/recipes" for ::1 at 2016-07-17 14:56:17 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (2.9ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mShoppingList Load (0.5ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 30], ["LIMIT", 1]]
+Completed 200 OK in 43ms (Views: 37.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/recipes/new" for ::1 at 2016-07-17 15:01:53 -0400
+Processing by RecipesController#new as HTML
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT COUNT("recipe_ingredients"."ingredient_id") AS count_ingredient_id, "recipe_ingredients"."ingredient_id" AS recipe_ingredients_ingredient_id FROM "recipe_ingredients" GROUP BY "recipe_ingredients"."ingredient_id" ORDER BY count(*) desc limit 10[0m
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendered recipes/new.html.erb within layouts/application (115.4ms)
+Completed 500 Internal Server Error in 298ms (ActiveRecord: 24.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Ingredient with 'id'=9):
+  
+app/models/recipe.rb:44:in `block in top_ingredients'
+app/models/recipe.rb:43:in `each'
+app/models/recipe.rb:43:in `top_ingredients'
+app/views/recipes/new.html.erb:10:in `block in _app_views_recipes_new_html_erb__1053449726708778891_70106612815440'
+app/views/recipes/new.html.erb:2:in `_app_views_recipes_new_html_erb__1053449726708778891_70106612815440'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.1ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (45.6ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (178.7ms)
+Started GET "/recipes" for ::1 at 2016-07-17 15:17:08 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (21.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mShoppingList Load (0.3ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 30], ["LIMIT", 1]]
+Completed 200 OK in 168ms (Views: 134.6ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/log_out" for ::1 at 2016-07-17 15:17:13 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-07-17 15:17:14 -0400
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 53ms (Views: 49.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-17 15:17:16 -0400
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (2.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 133ms (Views: 124.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/sign_in" for ::1 at 2016-07-17 15:17:17 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 101ms (Views: 93.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2016-07-17 15:17:19 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 89ms (Views: 82.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-07-17 15:17:37 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mS4IMd0NJFTjf6bMA7KkO7DqHls+5hGexH3kNuOq7grAjb+3VtnewBacSOhbz8fD5RSZvPq7Dq2dJn9W02E+tw==", "user"=>{"name"=>"Daniel", "fav_cuisine"=>"Japanese", "bio"=>"I like sushi", "image"=>"", "allergies"=>"", "hometown"=>"Los Angeles", "email"=>"dan@dan.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (11.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "fav_cuisine", "bio", "image", "allergies", "hometown", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Daniel"], ["fav_cuisine", "Japanese"], ["bio", "I like sushi"], ["image", ""], ["allergies", ""], ["hometown", "Los Angeles"], ["email", "dan@dan.com"], ["password_digest", "$2a$10$9WPnCYsuAwM.EuiuOeEKo.yVCQJD.YSXlmkepojX03nLMI2FciQ.W"], ["created_at", 2016-07-17 19:17:37 UTC], ["updated_at", 2016-07-17 19:17:37 UTC]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "readers" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 31], ["created_at", 2016-07-17 19:17:38 UTC], ["updated_at", 2016-07-17 19:17:38 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mReader Load (0.4ms)[0m  [1m[34mSELECT  "readers".* FROM "readers" WHERE "readers"."user_id" = $1 LIMIT $2[0m  [["user_id", 31], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "shopping_lists" ("user_id") VALUES ($1) RETURNING "id"[0m  [["user_id", 31]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShoppingList Load (0.3ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 31], ["LIMIT", 1]]
+Redirected to http://localhost:3000/recipes
+Completed 302 Found in 198ms (ActiveRecord: 34.5ms)
+
+
+Started GET "/recipes" for ::1 at 2016-07-17 15:17:38 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (4.3ms)
+  [1m[36mCACHE (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mShoppingList Load (0.5ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 31], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 31], ["LIMIT", 1]]
+Completed 200 OK in 69ms (Views: 60.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/shopping_lists/1" for ::1 at 2016-07-17 15:17:41 -0400
+Processing by ShoppingListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mShoppingList Load (0.9ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 31], ["LIMIT", 1]]
+  [1m[36mShoppingList Load (0.7ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering shopping_lists/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT COUNT(ingredients.name) AS count_ingredients_name, ingredients.name AS ingredients_name FROM "shopping_lists" INNER JOIN "line_items" ON "line_items"."shopping_list_id" = "shopping_lists"."id" INNER JOIN "ingredients" ON "ingredients"."id" = "line_items"."ingredient_id" WHERE "shopping_lists"."user_id" = $1 GROUP BY ingredients.name[0m  [["user_id", 31]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."shopping_list_id" = $1[0m  [["shopping_list_id", 1]]
+  Rendered shopping_lists/show.html.erb within layouts/application (75.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 31], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 31], ["LIMIT", 1]]
+Completed 200 OK in 138ms (Views: 115.8ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/recipes/8" for ::1 at 2016-07-17 15:17:47 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (2.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mReview Load (1.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  Rendered recipes/show.html.erb within layouts/application (12.1ms)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 19.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `/' for nil:NilClass):
+    3: <div class="container">
+    4:   <img src='<%=@recipe.image%>'></img>
+    5: </div>
+    6: <span><strong>Recipe Rating:</strong> <%= @recipe.recipe_rating %> out of 5</span>
+    7: <strong><p>By <%= link_to @recipe.author.user.name, user_path(@recipe.author.user.id) %></p></strong>
+    8: <label>Ingredients:</label>
+    9: <ul>
+  
+app/models/recipe.rb:70:in `recipe_rating'
+app/views/recipes/show.html.erb:6:in `_app_views_recipes_show_html_erb___2640839512750378824_70106610589860'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.8ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (100.5ms)
+Started GET "/recipes/8" for ::1 at 2016-07-17 15:24:09 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  Rendered recipes/show.html.erb within layouts/application (11.8ms)
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 15.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `/' for nil:NilClass):
+    3: <div class="container">
+    4:   <img src='<%=@recipe.image%>'></img>
+    5: </div>
+    6: <span><strong>Recipe Rating:</strong> <%= @recipe.recipe_rating %> out of 5</span>
+    7: <strong><p>By <%= link_to @recipe.author.user.name, user_path(@recipe.author.user.id) %></p></strong>
+    8: <label>Ingredients:</label>
+    9: <ul>
+  
+app/models/recipe.rb:70:in `recipe_rating'
+app/views/recipes/show.html.erb:6:in `_app_views_recipes_show_html_erb___2640839512750378824_70106611451400'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.7ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (88.5ms)
+Started GET "/recipes/8" for ::1 at 2016-07-17 15:24:35 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/dan/Development/recipe_app/app/models/recipe.rb:72: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/models/recipe.rb:72: syntax error, unexpected end-of-input, expecting keyword_end
+app/controllers/recipes_controller.rb:14:in `show'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.7ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (80.4ms)
+Started GET "/recipes" for ::1 at 2016-07-17 15:24:42 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (9.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mShoppingList Load (0.5ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 31], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mShoppingList Load (0.2ms)[0m  [1m[34mSELECT  "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."user_id" = $1 LIMIT $2[0m  [["user_id", 31], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 63.1ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/recipes/8" for ::1 at 2016-07-17 15:24:45 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  Rendered recipes/show.html.erb within layouts/application (11.6ms)
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 19.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `sum' for #<Recipe:0x007f85e9227e48>):
+    3: <div class="container">
+    4:   <img src='<%=@recipe.image%>'></img>
+    5: </div>
+    6: <span><strong>Recipe Rating:</strong> <%= @recipe.recipe_rating %> out of 5</span>
+    7: <strong><p>By <%= link_to @recipe.author.user.name, user_path(@recipe.author.user.id) %></p></strong>
+    8: <label>Ingredients:</label>
+    9: <ul>
+  
+app/models/recipe.rb:70:in `recipe_rating'
+app/views/recipes/show.html.erb:6:in `_app_views_recipes_show_html_erb___2640839512750378824_70106638090400'
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.5ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendering /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/dan/.rvm/gems/ruby-2.2.3/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (90.4ms)
+Started GET "/recipes/8" for ::1 at 2016-07-17 15:26:39 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."recipe_id" = $1[0m  [["recipe_id", 8]]

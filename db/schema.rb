@@ -66,11 +66,6 @@ ActiveRecord::Schema.define(version: 20160715200805) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "shopping_lists", force: :cascade do |t|
-    t.integer "user_id"
-    t.float   "total_price"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.integer  "recipe_id"
     t.integer  "reader_id"
@@ -78,6 +73,11 @@ ActiveRecord::Schema.define(version: 20160715200805) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "rating"
+  end
+
+  create_table "shopping_lists", force: :cascade do |t|
+    t.integer "user_id"
+    t.float   "total_price"
   end
 
   create_table "users", force: :cascade do |t|
