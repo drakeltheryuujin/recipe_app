@@ -40,8 +40,9 @@ class Recipe < ApplicationRecord
     # {1=>9}
     # 1 (cucumber) is the most used ingredient. 9 is the count. 
     top_ingredients = []
+    
     top_ing_hash.each do |id, count|
-     top_ingredients<< Ingredient.find(id)
+      top_ingredients<< Ingredient.find(id)
     end
     top_ingredients 
   end

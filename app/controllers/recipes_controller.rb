@@ -17,6 +17,12 @@ class RecipesController < ApplicationController
     @review = Review.new
     @reviews = Review.where(recipe_id: @recipe.id)
     @user = current_user  
+    if @author = @user.author 
+      if @user.author.my_recipe?(@recipe) && @user.author.my_recipe_bookmarked?(@recipe)
+        @bookmarks = @recipe.bookmarks
+      end  
+    end
+
   end
 
   def new 

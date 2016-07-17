@@ -16,7 +16,7 @@ class User < ApplicationRecord
   	@safe_food = Recipe.all.to_a - @dangerous_food
   end
 
-
+  
 
 
   def search_by_fav_cuisine

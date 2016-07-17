@@ -1,4 +1,4 @@
-
+doc 
 <h1><%=@recipe.norm_title%></h1>
 <div class="container">
   <img src='<%=@recipe.image%>'></img>
@@ -24,6 +24,8 @@
 <label>Instructions:</label>
 <p><%=@recipe.content%></p>
 
+<% if !@author.my_recipe?(@recipe) %>
+
 <h4>Like it? Bookmark this!</h4>
   <%= form_for @bookmark do |f| %>
     <%= f.hidden_field :recipe_id, :value => @recipe.id %>
@@ -36,8 +38,20 @@
   <% end %>
   <br/>
   <br/>
-  
-  <% if !@user.author.my_recipe?(@recipe) %>
+
+  <% end %>
+ 
+ <div> 
+    <% if @bookmarks %>
+      Show me who bookmarked this!
+      <% @recipe.bookmarks.each do |bookmark| %>
+        <%= bookmark.reader.user.name %>
+        <% end %>
+    <% end %>
+</div>
+
+
+  <% if !@author.my_recipe?(@recipe) %>
     <% if !@user.reader.is_reviewed?(@reviews) %>
       <h3>Got something to say??? Say it!</h3>
       <%= form_for @review do |f| %>
@@ -60,7 +74,7 @@
         </div>
       <% end %>
     <% else %>
-      <p>You've already left a review!</p>
+      <p>You've already left a review, or this is your own recipe, silly! </p>
       <h3>Edit Review?</h3>
       (add edit form here)
     <% end %>

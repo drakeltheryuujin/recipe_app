@@ -16,4 +16,11 @@ class Author < ApplicationRecord
   def my_recipe?(recipe)
     self.recipes.include?(recipe)
   end
+
+  def my_recipe_bookmarked?(recipe)
+    if my_recipe?(recipe)
+      !recipe.bookmarks.empty?
+    end
+  end
+
 end

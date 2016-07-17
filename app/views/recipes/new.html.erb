@@ -8,7 +8,7 @@
 <%=f.text_field :image %><br><br>
 <label>Ingredients:</label><br>
 <%= f.collection_check_boxes :ingredient_ids, Recipe.top_ingredients(10), :id, :name %><br><br>
-
+<%= f.label "Choose Unlisted Ingredients" %> <br>
 <%= f.fields_for :ingredients do |ingredient| %>
 
   <%= ingredient.text_field :name %><br><br>
