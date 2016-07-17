@@ -6,34 +6,67 @@
 <p><strong>Email:</strong> <%= @user.email %></p>
 <p><strong>About Me:</strong> <%= @user.bio %></p>
 <p><strong>Favorite Cuisine:</strong> <%= @user.fav_cuisine %></p>
-<strong>Food Allergies:</strong> <%= @user.allergies %><br><br>
-<strong> </strong><br>
-<ul>
+<strong>Food Allergies:</strong> <%= @user.allergies %>
+<br>
+<br>
+<br>
 <% if @user.author %>
- <strong><label>My Recipes:</label></strong><br>
+<ul>
+ <h4>My Recipes:</h4>
   <% @user.author.recipes.each do |recipe| %>
-  <%= link_to recipe.title, recipe_path(recipe)%><br>
+    <li><%= link_to recipe.title, recipe_path(recipe)%></li>
   <%end%>
 </ul>
 <% end %>
-<br>
 
 
 
-
-
+<% if @user.reader.bookmarks.any? %>
+ <h4>My Bookmarks:</h4>
 <ul>
-<% if @user.reader && @user.reader.bookmarks.count != 0 %>
- <strong><label>My Bookmarks:</label></strong><br>
-
   <% @user.reader.bookmarks.each do |bookmark| %>
   <%= link_to bookmark.recipe.norm_title, recipe_path(bookmark.recipe)%><br>
 
 
     <p><%= bookmark.truncate_content %></p></li>
   <% end %>
-  </ul>
+</ul>
 <%end%>
-<br><br><button>
+
+<% if @user.reader.recipes.any? %>
+<h4>My Reviews:</h4>
+<ol class="reviews">
+ <% @user.reader.has_reviews(5).each do |review| %>
+    <li>
+    <figure>
+      <table>
+        <tr>
+          <td col width="70" valign="top">
+            <%= image_tag review.recipe.image, :width => "64" %>
+          </td>
+          <td valign="top">
+            <strong><%= review.recipe.title %></strong>
+            <br/>
+            <small>
+              <strong>Rating:</strong> <em><%= review.rating %></em>
+            </small>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <figcaption>
+              <p><%= review.content %></p>
+            <figcaption>
+          </td>
+        <tr>
+      </table>
+    </figure>
+  </li>
+<% end %>
+</ol>
+<% end %>
+<button>
   <%= link_to "Log Out", log_out_path %>
 </button>
+
+
