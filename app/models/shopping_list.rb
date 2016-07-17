@@ -50,6 +50,10 @@ class ShoppingList < ApplicationRecord
     # no_duplicates 
   end
 
+  def show_ingredient_ids 
+    self.ingredients.pluck(:id)
+  end
+
     
 
 

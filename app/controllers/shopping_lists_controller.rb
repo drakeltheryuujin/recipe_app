@@ -26,7 +26,19 @@ class ShoppingListsController < ApplicationController
 		end  
 	end
 
+	def create 
+		  @shopping_list = ShoppingList.find_by(user_id: session[:user_id])
+		  @shopping_list.remove_all_items 
+		  unless params[:shopping_list][:ingredients_attributes] == nil 
+		  repopulate_shopping_list(@shopping_list)
+			end
+		  @shopping_list.add_selected_items(params[:shopping_list][:line_items])
+		  @shopping_list.save 
+     redirect_to shopping_list_path @shopping_list
+	end
+
 	def update
+		byebug
 		  @shopping_list = ShoppingList.find(params[:id])
 		  @shopping_list.remove_selected_items(params[:shopping_list][:ingredients])
 		  @shopping_list.add_selected_items(params[:shopping_list][:line_items])
@@ -40,6 +52,14 @@ class ShoppingListsController < ApplicationController
 		redirect_to shopping_list_path @shopping_list
 	end
 
+	def repopulate_shopping_list(list)
+		params[:shopping_list][:ingredients_attributes].values.each do |hash|
+		  	ing_id = Ingredient.find_by(name: hash[:name]).id
+		  	hash[:price].to_i.times do 
+		  		list.line_items << LineItem.create(ingredient_id: ing_id, shopping_list_id: list.id)
+		  	end
+		  end
+		end
 
 private 
 
