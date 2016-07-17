@@ -1,0 +1,36 @@
+<h1>My Shopping List</h1>
+
+<strong>Delete:</strong>
+
+<%= form_for @shopping_list_uniq do |f| %>
+  <%=f.fields_for :ingredients do |item|%>
+ <%= item.label :name, item.object.name %>
+  <%= item.number_field :price, :value => @shopping_list.item_count(item.object), in: 1..8 %><br>
+  <%end%>
+    <%end%>
+
+
+
+
+<%= form_for(@shopping_list) do |f| %>
+  <%= f.collection_check_boxes :ingredients, @shopping_list.ingredients, :id, :name do |b|
+  b.label { b.check_box + b.text}
+end %>
+
+  <br><br><br> Or... 
+
+  <%= link_to 'Clear Your List', shopping_list_delete_all_path%>
+
+
+  <br><br><br>
+  <strong>Add: </strong><br>
+  <%= f.collection_check_boxes :line_items, Ingredient.all, :id, :name do |b|
+  b.label { b.check_box + b.text}
+end%>
+
+  <br><br><%= f.submit %>
+<% end %>
+
+
+
+

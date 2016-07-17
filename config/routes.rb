@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get "/profile" => "users#profile"
   get "/profile/shopping_list" => "shopping_lists#show"
   get "/log_out" => "sessions#destroy"
+  get "/shopping_list/delete_all" => "shopping_lists#delete_all"
 end

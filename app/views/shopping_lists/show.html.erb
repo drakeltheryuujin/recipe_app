@@ -1,7 +1,9 @@
 <h1>My Shopping List</h1>
 
+
+<p><%= link_to 'Edit Your List', edit_shopping_list_path(@shopping_list.id)%><p><br>
 <%@shopping_list.count_same_ingredients.each do |ingredient, count|%>
-  <ul><%if count > 1 %>
+  <ul><%if count > 1 && ingredient[-1] != "s"%>
     <li><%= "#{count} #{ingredient}s" %><br></li>
   <%else%>
     <li><%= "#{count} #{ingredient}" %><br></li>
