@@ -11,4 +11,8 @@ class Review < ApplicationRecord
     self.reader.user.name
   end
 
+  def reviews_list(num)
+    byebug
+  end
+
 end
