@@ -12,4 +12,8 @@
 <div class="container">
 <img src='<%=recipe.image%>'></img>
 </div>
+Crafted by
+<%= link_to recipe.author.user.name, user_path(recipe.author.user.id) %>
 <%end%>
+
+<!-- #{recipe.author.user.name} -->

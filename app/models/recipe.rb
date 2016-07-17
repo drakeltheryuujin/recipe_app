@@ -67,6 +67,8 @@ class Recipe < ApplicationRecord
     end
     total_reviews = self.reviews.count
     sum = all_ratings.reduce(:+)
-    (sum)/(total_reviews) 
+    if !sum.nil?
+      (sum)/(total_reviews) 
+    end
   end
 end
