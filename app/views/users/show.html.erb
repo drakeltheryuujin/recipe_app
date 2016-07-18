@@ -1,10 +1,11 @@
 <h1><%= @user.name %></h1>
 
 <p><%= image_tag @user.image, size: "200x200" %></p>
-<p>Hi! I'm from <%= @user.hometown %></p>
-<p><%= @user.bio %></p>
-<p>My favorite cuisine is <%= @user.fav_cuisine %></p>
-<p>I'm allergic to <%= @user.allergies %><br><br>
+
+
+<% @user.hide_empty_fields.map do |k,v|%>
+ <strong> <%=@user.display_attribute_key(k)%>: </strong><%=v%><br><br>
+ <%end%>
 
 <% if @user.author %>
 	<label><b>Check out my recipes!</b></label><br>

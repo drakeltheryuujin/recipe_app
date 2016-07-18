@@ -1,12 +1,19 @@
-<h1><%= @user.name %></h1>
+<h1><%=@user.name%></h1>
 
-<p><%= image_tag @user.image, size: "200x200" %></p>
+
+
+
+<p><%= image_tag @user.display_image, size: "200x200" %></p>
 <p><%= link_to 'Edit Your Profile', edit_user_path(@user.id)%><p>
-<p><strong>Hometown:</strong> <%= @user.hometown %></p>
+<% @user.hide_empty_fields.map do |k,v|%>
+ <strong> <%=@user.display_attribute_key(k)%>: </strong><%=v%><br><br>
+ <%end%>
+
+<!-- <p><strong>Hometown:</strong> <%= @user.hometown %></p>
 <p><strong>Email:</strong> <%= @user.email %></p>
 <p><strong>About Me:</strong> <%= @user.bio %></p>
 <p><strong>Favorite Cuisine:</strong> <%= @user.fav_cuisine %></p>
-<strong>Food Allergies:</strong> <%= @user.allergies %>
+<strong>Food Allergies:</strong> <%= @user.allergies %> -->
 <br>
 <br>
 <br>

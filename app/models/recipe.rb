@@ -73,4 +73,21 @@ class Recipe < ApplicationRecord
       (sum)/(total_reviews) 
     end
   end
+
+  def display_rating
+    if self.recipe_rating != 0
+      self.recipe_rating.to_s + 'out of 5'
+    end
+  end
+
+  def display_image
+    if self.image == ''
+      'none.png'
+    else
+      self.image
+    end
+  end
+
+
+
 end

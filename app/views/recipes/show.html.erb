@@ -1,4 +1,3 @@
-doc 
 <h1><%=@recipe.norm_title%></h1>
 <div class="container">
   <img src='<%=@recipe.image%>'></img>
@@ -11,7 +10,7 @@ doc
 <%if ingredient.name != "" %>
 <li><%=ingredient.name%></li>
 <%= form_for @line_item do |f|%>
-<%# <%= f.hidden_field :shopping_list_id, :value => @user.shopping_list.id%> %>
+<%# <%= f.hidden_field :shopping_list_id, :value => @user.shopping_list.id%> 
 <%= f.hidden_field :ingredient_id, :value => ingredient.id%>
 <%= f.submit "add to shopping list" %>
 <%end%>
@@ -24,23 +23,21 @@ doc
 <label>Instructions:</label>
 <p><%=@recipe.content%></p>
 
-<% if !@author.my_recipe?(@recipe) %>
 
-<h4>Like it? Bookmark this!</h4>
-  <%= form_for @bookmark do |f| %>
-    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
-    <%= f.hidden_field :reader_id, :value => @user.reader.id %>
-    <% if !@user.reader.is_bookmarked?(@recipe) %>
-      <%= f.submit "Bookmark" %>
-    <% else %>
-      <%= f.submit "Bookmarked!", :disabled => "disabled" %>
+  <h4>Like it? Bookmark this!</h4>
+    <%= form_for @bookmark do |f| %>
+      <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+      <%= f.hidden_field :reader_id, :value => @user.reader.id %>
+      <% if !@user.reader.is_bookmarked?(@recipe) %>
+        <%= f.submit "Bookmark" %>
+      <% else %>
+        <%= f.submit "Bookmarked!", :disabled => "disabled" %>
+      <% end %>
     <% end %>
-  <% end %>
-  <br/>
-  <br/>
+    <br/>
+    <br/>
 
-  <% end %>
- 
+
  <div> 
     <% if @bookmarks %>
       Show me who bookmarked this!
@@ -51,7 +48,6 @@ doc
 </div>
 
 
-  <% if !@author.my_recipe?(@recipe) %>
     <% if !@user.reader.is_reviewed?(@reviews) %>
       <h3>Got something to say??? Say it!</h3>
       <%= form_for @review do |f| %>
@@ -78,7 +74,6 @@ doc
       <h3>Edit Review?</h3>
       (add edit form here)
     <% end %>
-  <% end %>
 <% if @reviews.any? %>
   <h3>Reviews</h3>
   <ol class="reviews">

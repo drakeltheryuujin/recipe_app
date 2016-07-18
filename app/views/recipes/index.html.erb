@@ -10,7 +10,7 @@
 <%@recipes.each do |recipe|%>
 <h1><a href = <%=recipe_path(recipe.id)%>><%=recipe.norm_title%></a></h1>
 <div class="container">
-<img src='<%=recipe.image%>'></img>
+<img src='<%=recipe.display_image%>' , size: "200x200" ></img>
 </div>
 Crafted by
 <%= link_to recipe.author.user.name, user_path(recipe.author.user.id) %>

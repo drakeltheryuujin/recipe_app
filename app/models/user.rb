@@ -16,8 +16,29 @@ class User < ApplicationRecord
   	@safe_food = Recipe.all.to_a - @dangerous_food
   end
 
-  
+  def hide_empty_fields
+    self.attributes.select do |attribute, value|
+      value != '' && attribute != 'password_digest' && attribute != 'created_at' && attribute != 'updated_at' && attribute != 'id' && attribute != 'image'
+    end
+  end
 
+  def display_attribute_key(attribute)
+    if attribute == 'bio'
+      'About Me'
+    elsif attribute == 'fav_cuisine'
+      'Favorite Cuisine'
+    else
+      attribute.capitalize
+    end
+  end
+
+  def display_image
+    if self.image == ''
+      'none.png'
+    else
+      self.image
+    end
+  end
 
   def search_by_fav_cuisine
     faves = Recipe.all.search(self.fav_cuisine)

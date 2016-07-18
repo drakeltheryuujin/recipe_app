@@ -37,10 +37,13 @@ input[type="submit"]:disabled {
 .container
      {
      height:300px; 
+     width: 300px
      }
 .container img 
     {
      height:100%;
+     width: 300px
+
      }
 .reviews {
   list-style-position: inside;
