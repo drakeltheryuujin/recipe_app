@@ -53,8 +53,7 @@
 
     <% if @user.reader.is_reviewed?(@reviews) || @author && @author.my_recipe?(@recipe) %>
       <p>You've already left a review, or this is your own recipe, silly! </p>
-      <h3>Edit Review?</h3>
-      (add edit form here)
+      <h3><%= link_to "Edit Review?", edit_review_path %></h3>
     <% else %>
       <h3>Got something to say??? Say it!</h3>
       <%= form_for @review do |f| %>
