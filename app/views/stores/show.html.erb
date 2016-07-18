@@ -1,0 +1,8 @@
+<%= @store.name %>
+<%= @store.address %>
+
+<% @items.each do |item_array| %>
+<% 		item_array.each do |item| %>
+<%= item.name %>
+<% end %>
+<% end %>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :bookmarks
   resources :line_items
+  resources :stores
 
   post "/sessions" => "sessions#create"
   get "/sign_in" => "sessions#new", as: 'new_session'

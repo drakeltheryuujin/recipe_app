@@ -14,9 +14,9 @@
 </div>
 
 
-
-
-
-
+<%= form_tag '/stores', method: 'post' do %>
+	<%=text_field_tag :zip %> 
+	<%=submit_tag 'find store' %>
+<%end%>
 
 
