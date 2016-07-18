@@ -16,6 +16,10 @@ class Reader < ApplicationRecord
     reviews.exists?(reader_id: self.id)
   end
 
+  def my_review_id(recipe)
+    self.reviews.find_by(recipe_id: recipe).id
+  end
+
   def has_reviews(num)
     self.reviews[0...num].map {|review| review }
   end

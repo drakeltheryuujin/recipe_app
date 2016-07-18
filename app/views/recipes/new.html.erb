@@ -1,21 +1,26 @@
-
-<%= form_for @recipe do |f|%>
-<label>Title: </label><br>
-<%=f.text_field :title %><br><br>
-<label>Content: </label><br>
-<%=f.text_field :content %><br><br>
-<label>Image: </label><br>
-<%=f.text_field :image %><br><br>
-<%# <label>Category:</label><br> %>
-<%# <%= f.collection_select :category_id, Category.all, :id, :name %> %>
-<label>Ingredients:</label><br>
-<%= f.collection_check_boxes :ingredient_ids, Recipe.top_ingredients(10), :id, :name %><br><br>
-<%= f.label "Choose Unlisted Ingredients" %> <br>
-<%= f.fields_for :ingredients do |ingredient| %>
-
-  <%= ingredient.text_field :name %><br><br>
-<%end%>
-<%= f.submit %>
-<%end%>
-
-<!-- categories -->
+<div class="page-header">
+  <h1>Create a new recipe</h1>
+<div>
+<div class="row">
+  <div class="col-md-6">
+    <%= bootstrap_form_for @recipe do |f|%>
+      <%=f.label :title %>
+      <%=f.text_field :title, hide_label: true %>
+      <%=f.label :content %>
+      <%=f.text_area :content, hide_label: true  %>
+      <%=f.label :image %>
+      <%=f.text_field :image, hide_label: true  %>
+      <%= f.fields_for :categories do |c| %>
+        <%= c.collection_select :id, Category.order(:name), :id, :name, { :prompt => 'Select Category' } %>
+      <% end %>
+      <%= f.collection_check_boxes :ingredient_ids, Recipe.top_ingredients(10), :id, :name %>
+      <%= f.label "Choose Unlisted Ingredients" %> 
+      <div class="row clearfix">
+        <%= f.fields_for :ingredients do |ingredient| %>
+          <div class="col-md-4 col-xs-12"><%= ingredient.text_field :name %></div>
+        <%end%>
+      </div>  
+      <%= f.submit "Create Recipe", class: "btn btn-primary pull-right" %>
+    <%end%>
+  </div>
+</div>

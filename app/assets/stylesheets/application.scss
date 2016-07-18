@@ -1,94 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-
 body {
     background-image: url("/concrete.png") 
 }
-
-
 
 label.required:after {
   content:" *";
 }
 
-/* html * */
-/* { */
-   /* font-size: 1em; */
-   /* color: #000; */
-   /* font-family: Verdana; */
-/* } */
+.crop-featured-image {
+  background-size: cover; 
+  background-position: center; 
+  width: 100%;
+}
 
-/* body { */
-  /* padding: 1%; */
-
-/* } */
-
-/* input[type="submit"], button { */
-  /* border-radius: 3px; */
-  /* padding: 6px; */
-  /* border: 3px solid #9888b1; */
-  /* cursor: pointer; */
-  /* font-size: 14px; */
-  /* background-color: #EFF0F1 */
-/* } */
-
-/* input[type="submit"]:disabled { */
-  /* background: #ffc0cb; */
-  /* border-color: #c3bbd0; */
-  /* cursor: not-allowed; */
-/* } */
-/* .container */
-     /* { */
-     /* height:300px;  */
-     /* width: 300px; */
-     /* overflow: hidden; */
-
-     /* } */
-
-/* .container-fluid 
-     { 
-     height:300px; 
-     width: 300px; 
-     overflow: hidden; 
-     margin-right: auto; 
-
-
-     } 
-
-/* .container img  */
-    /* { */
-      /* width: 100%; */
-
-     /* } */
-
-
-
-/* .reviews { */
-  /* list-style-position: inside; */
-  /* padding-left: 20px; */
-/* } */
-/* .reviews figure { */
-  /* margin-top: 0; */
-/* } */
-
-/* .reviews li { */
-  /* width: 33%; */
-  /* float: left; */
-/* } */
-
-/* .reviews small em { */
-  /* color: #ff0000; */
-/* } */
-
-/* .recipe_panel { */
-  /* height: 350px; */
-  /* float:left; */
-  /* width: 24%; */
-  /* margin-bottom: 20px; */
-/* } */
-
-/*
- *= require rails_bootstrap_forms
- */
+.avatar-sm {
+  width: 64px;
+  height: 64px;
+}

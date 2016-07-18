@@ -1,7 +1,9 @@
 Please sign in!
 
+<%=flash[:message].html_safe unless flash[:message].blank? %>
 
-<%=flash[:message]%>
+<%= form_tag "/sessions" do %><br>
+
 <p>
   <div class="col-sm-5">
 

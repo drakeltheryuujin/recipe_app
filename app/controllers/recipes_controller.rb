@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
     @review = Review.new
     @reviews = Review.where(recipe_id: @recipe.id)
     @user = current_user  
-    if @author = @user.author 
+    if @author && @author = @user.author 
       if @user.author.my_recipe?(@recipe) && @user.author.my_recipe_bookmarked?(@recipe)
         @bookmarks = @recipe.bookmarks
       end  
@@ -27,9 +27,10 @@ class RecipesController < ApplicationController
 
   def new 
     @recipe = Recipe.new
-      3.times do 
-        @recipe.ingredients.build 
-      end
+    3.times { @recipe.categories.build } 
+    3.times do 
+      @recipe.ingredients.build 
+    end
   end
 
   def create
@@ -45,10 +46,10 @@ class RecipesController < ApplicationController
     redirect_to recipe_path(@recipe.id)
   end
 
-private 
+  private 
 
   def recipe_params
-    params.require(:recipe).permit(:title, :content, :image, :ingredients_array, :category_id, :ingredient_ids =>[])
+    params.require(:recipe).permit(:title, :content, :image, :ingredients_array, :categories_attributes => [:id], :ingredient_ids =>[])
   end
 
 

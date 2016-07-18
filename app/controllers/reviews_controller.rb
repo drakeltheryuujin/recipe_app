@@ -7,11 +7,15 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-
+    @review = Review.find(params[:id])
   end
 
   def update
-
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    @review.save
+    @recipe = @review.recipe_id
+    redirect_to recipe_path(@recipe)
   end
 
   def destroy

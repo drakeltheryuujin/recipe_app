@@ -1,9 +1,16 @@
-
-<div class="recipe_panel">
-<h1><a href = <%=recipe_path(recipe.id)%>><%=recipe.norm_title%></a></h1>
-<div class="container">
-<img src='<%=recipe.display_image%>' , size: "200x200" ></img>
-</div>
-Crafted by
-<%= link_to recipe.author.user.name, user_path(recipe.author.user.id) %>
+<div class="col-md-4 col-xs-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4><a href=<%=recipe_path(recipe.id)%>><%=recipe.norm_title%></a></h4>
+    </div>
+    <div class="panel-body">
+      <a href=<%=recipe_path(recipe.id)%>>
+        <div style="background-image: url('<%=recipe.display_image%>'); height: 300px;", class="img-responsive img-rounded crop-featured-image" alt="Responsive image"></div>
+      </a>  
+    </div>
+    <div class="panel-footer">
+      Crafted by
+      <%= link_to recipe.author.user.name, user_path(recipe.author.user.id) %>
+    </div>
+  </div>
 </div>
