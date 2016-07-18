@@ -1,22 +1,5 @@
-<h1>Sign Up</h1>
+<h3>Sign Up</h3>
 
-<%= form_for(@user) do |f| %>
-  <%= f.label :name %><br/>
-  <%= f.text_field :name %><br/>
-  <%= f.label :fav_cuisine %><br/>
-  <%= f.text_field :fav_cuisine %><br/>
-  <%= f.label :bio %><br/>
-  <%= f.text_area :bio %><br/>
-  <%= f.label :image %><br/>
-  <%= f.text_field :image %><br/>
-  <%= f.label :allergies %><br/>
-  <%= f.text_field :allergies %><br/>
-  <%= f.label :hometown %><br/>
-  <%= f.text_field :hometown %><br/>
-  <%= f.label :email %><br/>
-  <%= f.text_field :email %> <br/>
-  <%= f.label :password %><br/>
-  <%= f.password_field :password %><br/>
-  <%= f.submit %>
-<% end %>
-
+<div class="form-group form-group-lg">
+  <%= render partial: "new_edit" %>
+</div>

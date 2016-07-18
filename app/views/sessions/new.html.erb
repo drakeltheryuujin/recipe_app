@@ -1,20 +1,17 @@
 Please sign in!
 
-<br><br>
+
 <%=flash[:message]%>
-<br>
+<p>
+  <div class="col-sm-5">
 
-<%= form_tag "/sessions" do %><br>
-
-
-
-<%= label_tag "Name" %>
-<%= text_field_tag :name %>
-<%= label_tag "Password" %>
-<%= password_field_tag :password %>
-<%= submit_tag "Sign in" %>
-
+<%= bootstrap_form_tag url: '/sessions' do |f| %>
+  <%= f.text_field :name %>
+  <%= f.password_field :password %>
+  <%= f.submit 'Sign In'  %>
 <% end %>
+</div>
+
 
 <!-- Need a form with Username and Password
 	1. user does not exist

@@ -82,7 +82,7 @@ class Recipe < ApplicationRecord
 
   def display_image
     if self.image == ''
-      'none.png'
+      '/none.png'
     else
       self.image
     end

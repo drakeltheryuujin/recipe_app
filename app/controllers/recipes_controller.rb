@@ -42,7 +42,7 @@ class RecipesController < ApplicationController
         end
       end
     @recipe.save
-    redirect_to recipe_path(@recipe)
+    redirect_to recipe_path(@recipe.id)
   end
 
 private 

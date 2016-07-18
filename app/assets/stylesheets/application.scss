@@ -1,6 +1,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+
+body {
+    background-image: url("/concrete.png") 
+}
+
+
+
+label.required:after {
+  content:" *";
+}
+
 /* html * */
 /* { */
    /* font-size: 1em; */
@@ -34,11 +46,25 @@
      /* overflow: hidden; */
 
      /* } */
+
+/* .container-fluid 
+     { 
+     height:300px; 
+     width: 300px; 
+     overflow: hidden; 
+     margin-right: auto; 
+
+
+     } 
+
 /* .container img  */
     /* { */
       /* width: 100%; */
 
      /* } */
+
+
+
 /* .reviews { */
   /* list-style-position: inside; */
   /* padding-left: 20px; */
@@ -62,3 +88,7 @@
   /* width: 24%; */
   /* margin-bottom: 20px; */
 /* } */
+
+/*
+ *= require rails_bootstrap_forms
+ */

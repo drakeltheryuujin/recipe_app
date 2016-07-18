@@ -1,19 +1,6 @@
-<h1><%= @user.name %></h1>
-
-<p><%= image_tag @user.image, size: "200x200" %></p>
+<%= render partial: "form" %>
 
 
-<% @user.hide_empty_fields.map do |k,v|%>
- <strong> <%=@user.display_attribute_key(k)%>: </strong><%=v%><br><br>
- <%end%>
 
-<% if @user.author %>
-	<label><b>Check out my recipes!</b></label><br>
-	<% @user.author.recipes.each do |recipe| %>
-	<ul>
-	<%= link_to recipe.norm_title, recipe_path(recipe)%><br>
-	</ul>
-	<%end%>
-<% end %>
 
 
