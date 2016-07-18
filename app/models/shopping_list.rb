@@ -54,6 +54,10 @@ class ShoppingList < ApplicationRecord
     self.ingredients.pluck(:id)
   end
 
+  def show_ingredient_names
+    self.ingredients.pluck(:name)
+  end
+
     
 
 

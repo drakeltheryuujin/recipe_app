@@ -10,6 +10,11 @@
   <%end%></ul>
 <%end%>
 
+<%= form_tag '/stores', method: 'post' do %>
+	<%=text_field_tag :zip %> 
+	<%=submit_tag 'find store' %>
+<%end%>
+
 <!--<% @shopping_list.line_items.each do |line_item|%>
 	<%= line_item.ingredient.name%>  
  	<%= @shopping_list%>
