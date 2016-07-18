@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :shopping_lists
-  root "static#index"
+  root "recipes#index"
   resources :recipes
   resources :users
   resources :reviews
