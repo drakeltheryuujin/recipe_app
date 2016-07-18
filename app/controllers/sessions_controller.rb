@@ -10,11 +10,11 @@ class SessionsController < ApplicationController
   		    session[:user_id] = @user.id
   		    redirect_to "/profile" 
   		else 
-  			flash[:message] = "try again"
+  			flash[:message] = "Sorry, we don't recognize that password. Please try again."
   	    redirect_to '/sign_in' 
   	  end
     else 
-      flash[:message] = "who are you?"
+      flash[:message] = "Sorry, we don't recognize that user. Please try again."
         redirect_to '/sign_in' 
     end
   end

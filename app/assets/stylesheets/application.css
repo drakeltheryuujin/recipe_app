@@ -20,6 +20,11 @@ html *
    font-family: Verdana;
 }
 
+body {
+  padding: 1%;
+
+}
+
 input[type="submit"], button {
   border-radius: 3px;
   padding: 6px;
@@ -37,12 +42,13 @@ input[type="submit"]:disabled {
 .container
      {
      height:300px; 
-     width: 300px
+     width: 300px;
+     overflow: hidden;
+
      }
 .container img 
     {
-     height:100%;
-     width: 300px
+      width: 100%;
 
      }
 .reviews {
@@ -60,4 +66,11 @@ input[type="submit"]:disabled {
 
 .reviews small em {
   color: #ff0000;
+}
+
+.recipe_panel {
+  height: 350px;
+  float:left;
+  width: 24%;
+  margin-bottom: 20px;
 }
