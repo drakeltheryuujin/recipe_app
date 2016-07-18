@@ -15,6 +15,7 @@ Bookmark.destroy_all
 RecipeIngredient.destroy_all
 ShoppingList.destroy_all
 LineItem.destroy_all
+Category.delete_all
 
 user_1 = User.create(name: 'Lily', password: 'baseball', bio:"I'm cool", fav_cuisine:'cuban', image:"http://pixel.nymag.com/imgs/daily/vulture/2016/02/09/9-johnny-depp.w529.h529.jpg", allergies:"cucumber, sesame seeds, gluten", hometown:'San Mateo', email: 'lily@lily.com')
 
@@ -106,5 +107,41 @@ Bookmark.create(reader_id: user_3.reader.id, recipe_id: recipe_2.id)
 Bookmark.create(reader_id: user_4.reader.id, recipe_id: recipe_1.id)
 Bookmark.create(reader_id: user_1.reader.id, recipe_id: recipe_2.id)
 Bookmark.create(reader_id: user_4.reader.id, recipe_id: recipe_1.id)
+
+# Category.create!(name: "Appetizers")
+# Category.create!(name: "Beverages")
+# Category.create!(name: "Beef")
+# Category.create!(name: "Breads & Rolls")
+# Category.create!(name: "Breakfast & Brunch")
+# Category.create!(name: "Brownies")
+# Category.create!(name: "Bars & Candy")
+# Category.create!(name: "Burgers")
+# Category.create!(name: "Brats & Hot Dogs")
+# Category.create!(name: "Cakes & Cheesecakes")
+# Category.create!(name: "Cookies")
+# Category.create!(name: "Dairy-Free")
+# Category.create!(name: "Desserts")
+# Category.create!(name: "Dips, Spreads & Sauces")
+# Category.create!(name: "Ethnic")
+# Category.create!(name: "Fish & Seafood")
+# Category.create!(name: "Gluten-Free")
+# Category.create!(name: "Grilling")
+# Category.create!(name: "Healthy Eating")
+# Category.create!(name: "Holiday")
+# Category.create!(name: "Treats")
+# Category.create!(name: "Kids Cuisines")
+# Category.create!(name: "Main Dishes")
+# Category.create!(name: "One Dish Meal")
+# Category.create!(name: "Paleo")
+# Category.create!(name: "Pasta & Pizzas")
+# Category.create!(name: "Pies")
+# Category.create!(name: "Poultry/Chicken")
+# Category.create!(name: "Salad")
+# Category.create!(name: "Sandwiches & Wraps")
+# Category.create!(name: "Sides")
+# Category.create!(name: "Snacks")
+# Category.create!(name: "Soups & Stew")
+# Category.create!(name: "Vegan")
+# Category.create!(name: "Vegetarian")
 
 
