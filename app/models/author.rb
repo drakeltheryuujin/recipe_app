@@ -14,7 +14,8 @@ class Author < ApplicationRecord
   end
 
   def my_recipe?(recipe)
-    self.recipes.include?(recipe)
+    # self.recipes.include?(recipe)
+    self.recipes.exists?(recipe)
   end
 
   def my_recipe_bookmarked?(recipe)

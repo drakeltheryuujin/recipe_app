@@ -2,15 +2,19 @@
 <div class="container">
   <img src='<%=@recipe.image%>'></img>
 </div>
-<span><strong>Recipe Rating:</strong> <%= @recipe.recipe_rating %> out of 5</span>
+<% if @recipe_rating %>
+  <span><strong>Recipe Rating:</strong> <%= @recipe.recipe_rating %> out of 5</span>
+<% else %>
+  <span>This recipe doesn't have a rating yet! Be the first to review!</span>
+<% end %>
 <strong><p>By <%= link_to @recipe.author.user.name, user_path(@recipe.author.user.id) %></p></strong>
-<label>Ingredients:</label>
+<h4>Ingredients:</h4>
 <ul>
 <%@recipe.ingredients.each_with_index do |ingredient|%>
-<%if ingredient.name != "" %>
+<% if ingredient.name != "" %>
 <li><%=ingredient.name%></li>
 <%= form_for @line_item do |f|%>
-<%# <%= f.hidden_field :shopping_list_id, :value => @user.shopping_list.id%> 
+<%= f.hidden_field :shopping_list_id, :value => @user.shopping_list.id %>
 <%= f.hidden_field :ingredient_id, :value => ingredient.id%>
 <%= f.submit "add to shopping list" %>
 <%end%>
@@ -47,8 +51,11 @@
     <% end %>
 </div>
 
-
-    <% if !@user.reader.is_reviewed?(@reviews) %>
+    <% if @user.reader.is_reviewed?(@reviews) || @author && @author.my_recipe?(@recipe) %>
+      <p>You've already left a review, or this is your own recipe, silly! </p>
+      <h3>Edit Review?</h3>
+      (add edit form here)
+    <% else %>
       <h3>Got something to say??? Say it!</h3>
       <%= form_for @review do |f| %>
         <%= f.hidden_field :recipe_id, :value => @recipe.id %>
@@ -69,17 +76,14 @@
           <%= f.submit "Submit Review" %>
         </div>
       <% end %>
-    <% else %>
-      <p>You've already left a review, or this is your own recipe, silly! </p>
-      <h3>Edit Review?</h3>
-      (add edit form here)
-    <% end %>
 <% if @reviews.any? %>
   <h3>Reviews</h3>
   <ol class="reviews">
     <%= render "recipe_review", locals: { review: @reviews } %>
   </ol>
 <% end %>
+<% end %>
+
 
 <br>
 <%= link_to 'Back', :back %>
