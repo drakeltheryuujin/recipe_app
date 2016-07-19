@@ -1,8 +1,12 @@
-<%= @store.name %>
-<%= @store.address %>
+<h1><%= @store.name %></h1>
+<h3><%= @store.address %></h3>
+<br><br>
 
-<% @items.each do |item_array| %>
+<% @ingredients_items.each do |name, item_array| %>
+  <h3><%=name.capitalize%></h3>
 <% 		item_array.each do |item| %>
-<%= item.name %>
+<label><%= item.name %></label><br>
+<img src = <%=item.image%>><br>
+<strong>Price: $<%=item.price%></strong><br>
 <% end %>
 <% end %>
