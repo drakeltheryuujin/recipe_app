@@ -15,16 +15,26 @@ class StoresController < ApplicationController
 		# 	byebug
 		# 	StoreItem.find_by(description: item_hash["ItemDescription"])
 		# end
+		@ingredients_items = {}
+
 		
-		@items = item_monster_array.each do|item_array|
-			item_array.map do |item_hash|
+		items_array = item_monster_array.map do|item_array|
+			item_array[0..4].map do |item_hash|
 				StoreItem.find_by(description: item_hash["ItemDescription"])
 			end
 		end
+
+		zipped = items.zip(items_array)
+
+		zipped.each do |array|
+			@ingredients_items[array[0]] = array[1]
+		end
+
 		render "stores/show"
 		# @items = item_monster_array.map {|item_array| item_array.map {|item_hash| StoreItem.find_by(description: item_hash["ItemDescription"]) }}
 
 	end
+
 
 	def show
 		byebug
