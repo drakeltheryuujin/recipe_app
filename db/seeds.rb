@@ -74,7 +74,7 @@ recipe_2.ingredients<< ing_8
 recipe_3 = Recipe.create(author_id: user_2.author.id, image: 'https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e35/13562077_1049077925129404_1042970027_n.jpg', title: 'Smoked Salmon', 
 	content:'Get fresh ingredients and just stir everything with ponzu sauce :D')
 
-ing_9 = Ingredient.create(name: 'raddish')
+ing_9 = Ingredient.create(name: 'radish')
 ing_10 = Ingredient.create(name: 'salmon')
 ing_11 = Ingredient.create(name: 'vinegar')
 ing_12 = Ingredient.create(name: 'romaine')
