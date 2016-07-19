@@ -10,9 +10,8 @@
       <%=f.text_area :content, hide_label: true  %>
       <%=f.label :image %>
       <%=f.text_field :image, hide_label: true  %>
-      <%= f.fields_for :categories do |c| %>
-        <%= c.collection_select :id, Category.order(:name), :id, :name, { :prompt => 'Select Category' } %>
-      <% end %>
+      <%=f.label :category %>
+      <%= collection_select(:recipe, :category_ids, Category.order(:name), :id, :name, { include_hidden: false}, {:multiple => true, :class => "form-control"}) %>
       <%= f.collection_check_boxes :ingredient_ids, Recipe.top_ingredients(10), :id, :name %>
       <%= f.label "Choose Unlisted Ingredients" %> 
       <div class="row clearfix">

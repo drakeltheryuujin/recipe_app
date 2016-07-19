@@ -35,6 +35,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.categories << Category.create(id: recipe_params[:category_ids])
+    
     @author = Author.find_or_create_by(user_id: session[:user_id])
     @recipe.author = @author
       params[:recipe][:ingredients_attributes].each do |id, name|
@@ -49,7 +51,7 @@ class RecipesController < ApplicationController
   private 
 
   def recipe_params
-    params.require(:recipe).permit(:title, :content, :image, :ingredients_array, :categories_attributes => [:id], :ingredient_ids =>[])
+    params.require(:recipe).permit(:title, :content, :image, :ingredients_array, :category_ids => [], :ingredient_ids =>[])
   end
 
 
