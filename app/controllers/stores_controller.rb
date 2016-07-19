@@ -37,7 +37,9 @@ class StoresController < ApplicationController
 
 
 	def show
-		byebug
+	end
+
+	def index
 	end
 
 end

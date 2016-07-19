@@ -1,9 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-    background-image: url("/concrete.png") 
-}
+
 
 label.required:after {
   content:" *";
