@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   def new
     if current_user
-      redirect_to '/profile'
+      redirect_to root_url
     else 
       @user = User.new
     end

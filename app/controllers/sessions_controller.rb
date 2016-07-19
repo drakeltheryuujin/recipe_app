@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user = User.find_by(name: params[:name])
       if @user.authenticate(params[:password])
           session[:user_id] = @user.id
-          redirect_to "/profile" 
+          redirect_to root_url 
       else 
         flash[:message] = "<div class='alert alert-danger'>Sorry, we don't recognize that password. Please try again.</div>"
         redirect_to '/sign_in' 
