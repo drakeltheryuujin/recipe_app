@@ -79,7 +79,7 @@
       <% end %>
     </div>
     <% if logged_in? %>
-      <% if @user.reader.is_reviewed?(@reviews) || @user.author.my_recipe?(@recipe) %>
+      <% if @user.reader.is_reviewed?(@reviews) || @user.author && @user.author.my_recipe?(@recipe) %>
         <div class="panel">
           <div class="alert alert-warning clearfix">
             <p class="pull-left">You've already left a review, or this is your own recipe, silly! </p>
