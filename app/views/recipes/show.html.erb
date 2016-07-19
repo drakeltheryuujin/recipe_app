@@ -79,11 +79,13 @@
       <% end %>
     </div>
     <% if logged_in? %>
-      <% if @user.reader.is_reviewed?(@reviews) || @author && @author.my_recipe?(@recipe) %>
+      <% if @user.reader.is_reviewed?(@reviews) || @user.author.my_recipe?(@recipe) %>
         <div class="panel">
           <div class="alert alert-warning clearfix">
             <p class="pull-left">You've already left a review, or this is your own recipe, silly! </p>
-            <button class="btn btn-default btn-xs pull-right"><%= link_to "Edit Your Review?", edit_review_url(@user.reader.my_review_id(@recipe)) %></button>
+            <% if @user.reader.is_reviewed?(@reviews) %>
+              <button class="btn btn-default btn-xs pull-right"><%= link_to "Edit Your Review?", edit_review_url(@user.reader.my_review_id(@recipe)) %></button>
+            <% end %>
           </div>  
         </div>  
       <% else %>

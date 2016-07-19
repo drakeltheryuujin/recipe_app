@@ -15,7 +15,12 @@ Bookmark.destroy_all
 RecipeIngredient.destroy_all
 ShoppingList.destroy_all
 LineItem.destroy_all
-Category.delete_all
+Category.destroy_all
+ShoppingList.destroy_all
+RecipeCategory.destroy_all
+Store.destroy_all
+StoreItem.destroy_all
+Review.destroy_all
 
 user_1 = User.create(name: 'Lily', password: 'baseball', bio:"I'm cool", fav_cuisine:'cuban', image:"http://pixel.nymag.com/imgs/daily/vulture/2016/02/09/9-johnny-depp.w529.h529.jpg", allergies:"cucumber, sesame seeds, gluten", hometown:'San Mateo', email: 'lily@lily.com')
 
@@ -103,9 +108,20 @@ ShoppingList.create(user_id:user_3.id)
 ShoppingList.create(user_id:user_4.id)
 
 recipe_1.categories << Category.create(name: "Appetizers")
+recipe_1.categories << Category.create(name: "Gluten-Free")
+recipe_1.categories << Category.create(name: "Main Dishes")
 recipe_2.categories << Category.create(name: "Beef")
+recipe_2.categories << Category.create(name: "Grilling")
+recipe_2.categories << Category.create(name: "Beef")
+recipe_2.categories << Category.create(name: "Snacks")
+recipe_3.categories << Category.create(name: "Cakes & Cheesecakes")
+recipe_3.categories << Category.create(name: "Dairy-Free")
 recipe_3.categories << Category.create(name: "Beverages")
+recipe_3.categories << Category.create(name: "Holiday")
 recipe_4.categories << Category.create(name: "Breads & Rolls")
+recipe_4.categories << Category.create(name: "Poultry/Chicken")
+recipe_4.categories << Category.create(name: "Breads & Rolls")
+recipe_4.categories << Category.create(name: "Paleo")
 
 Category.create(name: "Breakfast & Brunch")
 Category.create(name: "Brownies")
