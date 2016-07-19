@@ -12,11 +12,13 @@
     <% end %>
   </div>
   <% if @recipe.categories %>
-  <div class="panel">
-    <strong>Categories</strong>
-    <% @recipe.categories.each do |ingredient|%>
-      <span class="label label-info"><%= ingredient.name %></span>
-    <% end %>
+    <div class="panel">
+      <div class="panel-body">
+      <strong>Categories</strong>
+      <% @recipe.categories.each do |ingredient|%>
+        <span class="label label-info"><%= ingredient.name %></span>
+      <% end %>
+    </div>
   </div>
   <% end %>
     <strong><p>By <%= link_to @recipe.author.user.name, user_path(@recipe.author.user.id) %></p></strong>
@@ -129,3 +131,4 @@
       <% end %>
     </div>
   </div>
+</div>
