@@ -30,22 +30,26 @@
         <% @recipe.ingredients.each_with_index do |ingredient|%>
           <% if ingredient.name != "" %>
             <li class="list-group-item"><%=ingredient.name%>
-              <span class="pull-right"><%= form_for @line_item do |f|%>
-                <%= f.hidden_field :shopping_list_id, :value => @user.shopping_list.id %>
-                <%= f.hidden_field :ingredient_id, :value => ingredient.id%>
-                <%= f.submit "add to shopping list", class: "btn btn-default btn-xs" %>
+              <% if logged_in? %>
+                <span class="pull-right"><%= form_for @line_item do |f|%>
+                  <%= f.hidden_field :shopping_list_id, :value => @user.shopping_list.id %>
+                  <%= f.hidden_field :ingredient_id, :value => ingredient.id%>
+                  <%= f.submit "add to shopping list", class: "btn btn-default btn-xs" %>
+                <%end%>
+                </span>
               <%end%>
-              </span>
             </li>          
           <%end%>
         <%end%>
       </ul>
     </div>
-    <div class="panel clearfix">    
-      <button class="btn btn-default pull-right">
-        <%= link_to 'See my shopping list', shopping_list_path %>
-      </button>
-    </div>
+    <% if logged_in? %>
+      <div class="panel clearfix">    
+        <button class="btn btn-default pull-right">
+          <%= link_to 'See my shopping list', shopping_list_path %>
+        </button>
+      </div>
+    <% end %>
 
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -57,51 +61,55 @@
     </div>
 
     <div class="panel">   
-      <%= form_for @bookmark, :html => {class: "form-horizontal"} do |f| %>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Like it? Bookmark this!</label>
-          <div class="col-sm-9">
-            <%= f.hidden_field :recipe_id, :value => @recipe.id %>
-            <%= f.hidden_field :reader_id, :value => @user.reader.id %>
-            <% if !@user.reader.is_bookmarked?(@recipe) %>
-              <%= f.submit "Bookmark", class: "btn btn-info" %>
-            <% else %>
-              <%= f.submit "Bookmarked!", :disabled => "disabled", class: "btn btn-success"  %>
-            <% end %>
+      <% if logged_in? %>
+        <%= form_for @bookmark, :html => {class: "form-horizontal"} do |f| %>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Like it? Bookmark this!</label>
+            <div class="col-sm-9">
+              <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+              <%= f.hidden_field :reader_id, :value => @user.reader.id %>
+              <% if !@user.reader.is_bookmarked?(@recipe) %>
+                <%= f.submit "Bookmark", class: "btn btn-info" %>
+              <% else %>
+                <%= f.submit "Bookmarked!", :disabled => "disabled", class: "btn btn-success"  %>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
+    <% if logged_in? %>
       <% if @user.reader.is_reviewed?(@reviews) || @author && @author.my_recipe?(@recipe) %>
-      <div class="panel">
-        <div class="alert alert-warning clearfix">
-          <p class="pull-left">You've already left a review, or this is your own recipe, silly! </p>
-          <button class="btn btn-default btn-xs pull-right"><%= link_to "Edit Your Review?", edit_review_url(@user.reader.my_review_id(@recipe)) %></button>
+        <div class="panel">
+          <div class="alert alert-warning clearfix">
+            <p class="pull-left">You've already left a review, or this is your own recipe, silly! </p>
+            <button class="btn btn-default btn-xs pull-right"><%= link_to "Edit Your Review?", edit_review_url(@user.reader.my_review_id(@recipe)) %></button>
+          </div>  
         </div>  
-      </div>  
-    <% else %>
-      <div class="panel clearfix">
-        <h4>Got something to say??? Say it!</h4>
-        <%= form_for @review do |f| %>
-          <%= f.hidden_field :recipe_id, :value => @recipe.id %>
-          <%= f.hidden_field :reader_id, :value => @user.reader.id %>
-          <div class="media">
-            <div class="media-left">
-              <a href="#">
-                <img class="media-object img-circle avatar-sm" src="<%= @user.reader.user.image %>" alt="<%= @user.reader.user.name %>">
-              </a>
-            </div>
-            <div class="media-body">
-              <div class="form-group">
-                <%= f.label :rating %>
-                <%= f.select :rating, [1, 2, 3, 4, 5] %>
+      <% else %>
+        <div class="panel clearfix">
+          <h4>Got something to say??? Say it!</h4>
+          <%= form_for @review do |f| %>
+            <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+            <%= f.hidden_field :reader_id, :value => @user.reader.id %>
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object img-circle avatar-sm" src="<%= @user.reader.user.image %>" alt="<%= @user.reader.user.name %>">
+                </a>
               </div>
-              <%= f.label :content, "Review" %>
-              <%= f.text_area :content, class: "form-control" %>
+              <div class="media-body">
+                <div class="form-group">
+                  <%= f.label :rating %>
+                  <%= f.select :rating, [1, 2, 3, 4, 5] %>
+                </div>
+                <%= f.label :content, "Review" %>
+                <%= f.text_area :content, class: "form-control" %>
+              </div>
             </div>
-          </div>
-          <%= f.submit "Submit Review", class: "btn btn-primary pull-right" %>
-        </div>  
+            <%= f.submit "Submit Review", class: "btn btn-primary pull-right" %>
+          </div>  
+        <% end %>
       <% end %>
     <% end %>
     <% if @reviews.any? %>
