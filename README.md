@@ -15,5 +15,6 @@ Daniel Berry
 
 Kellye Greene
 
-Yichen Yang
+[Yichen Yang](https://github.com/yicheny001)
 
+ichenyy0701@gmail.com
