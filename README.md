@@ -6,6 +6,7 @@ KitchenGO! is a social platform for foodies to share and search for their favori
 
 KitchenGO! is built with Ruby on Rails and utilizes HTTParty for integration with the [Supermarket API](http://www.supermarketapi.com/Default.aspx).
 
+![User Interface](http://g.recordit.co/sx9BL4Q1CE.gif)
 
 Search,Rate/Review/Bookmark
 
