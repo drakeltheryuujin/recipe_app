@@ -13,6 +13,8 @@ Avram Billig
 
 Daniel Berry
 
+dandanberry@gmail.com
+
 Kellye Greene
 
 [Yichen Yang](https://github.com/yicheny001)
