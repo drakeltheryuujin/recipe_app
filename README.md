@@ -17,6 +17,4 @@ dandanberry@gmail.com
 
 Kellye Greene
 
-[Yichen Yang](https://github.com/yicheny001)
-
-ichenyy0701@gmail.com
+[Yichen Yang](https://github.com/yicheny001) | ichenyy0701@gmail.com
