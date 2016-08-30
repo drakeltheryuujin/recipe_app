@@ -17,6 +17,3 @@ Kellye Greene
 
 Yichen Yang
 
-Search,Rate/Review/Bookmark
-
-Shopping List/edit/supermarket search 
