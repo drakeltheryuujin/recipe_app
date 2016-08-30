@@ -10,8 +10,11 @@ KitchenGO! is built with Ruby on Rails and utilizes HTTParty for integration wit
 
 ##Collaborators
 Avram Billig
+
 Daniel Berry
+
 Kellye Greene
+
 Yichen Yang
 
 Search,Rate/Review/Bookmark
