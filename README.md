@@ -14,6 +14,6 @@ Avram Billig
 
 [Daniel Berry](https://github.com/berrydanielt) | dandanberry@gmail.com
 
-[Kellye Greene](https://github.com/drakeltheryuujin) | kellye.greene@kellyegreene.com
+[Kellye Greene](https://github.com/drakeltheryuujin) | kellyegreene@kellyegreene.com
 
 [Yichen Yang](https://github.com/yicheny001) | ichenyy0701@gmail.com
