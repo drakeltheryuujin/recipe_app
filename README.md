@@ -8,6 +8,12 @@ KitchenGO! is built with Ruby on Rails and utilizes HTTParty for integration wit
 
 ![User Interface](http://g.recordit.co/sx9BL4Q1CE.gif)
 
+##Collaborators
+Avram Billig
+Daniel Berry
+Kellye Greene
+Yichen Yang
+
 Search,Rate/Review/Bookmark
 
 Shopping List/edit/supermarket search 
