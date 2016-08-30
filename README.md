@@ -1,4 +1,5 @@
 # README
+This is a project completed at Flatiron School by students in the Full Stack Web Development June 2016 cohort. 
 
 ## KitchenGO!
 
@@ -11,9 +12,7 @@ KitchenGO! is built with Ruby on Rails and utilizes HTTParty for integration wit
 ##Collaborators
 Avram Billig
 
-Daniel Berry
-
-dandanberry@gmail.com
+[Daniel Berry](https://github.com/berrydanielt) | dandanberry@gmail.com
 
 Kellye Greene
 
