@@ -28,6 +28,7 @@
 .byebug_history
 log/development.log
 tmp/*
+.bundle/
 
 # OS generated files #
 ######################
